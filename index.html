@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Javier Velásquez Store</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#ffffff; --ink:#141414; --soft:#555; --mute:#8f8f8f; --line:#ececec; --black:#0a0a0a;
+    --warm:#b39a78; --warm-bg:#f3ede3; --warm-line:#e4d8c6;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:15px;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:#fff;padding:13px 26px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
+  .btn:hover{background:#2a2a2a;transform:translateX(3px)}
+  .btn.warm{background:var(--warm)}
+  .btn.warm:hover{background:#9c8464}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+  .head-in{max-width:1360px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;flex-direction:column;align-items:center;line-height:1}
+  .logo .n{font-weight:400;font-size:22px;letter-spacing:.16em;padding-left:.16em}
+  .logo .s{font-weight:600;font-size:10px;letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;color:var(--soft);margin-top:6px}
+  nav{display:flex;gap:30px;font-size:12px}
+  nav a:hover{opacity:.5}
+
+  .hero{max-width:1360px;margin:0 auto;padding:42px 40px 34px;text-align:center}
+  .hero .eye{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mute);font-weight:500;margin-bottom:16px}
+  .hero h1{font-weight:200;font-size:clamp(2.2rem,4.2vw,3.5rem);letter-spacing:-.02em;line-height:1.05;margin-bottom:18px}
+  .hero h1 b{font-weight:500}
+  .hero p{color:var(--soft);font-size:1.02rem;max-width:520px;margin:0 auto;font-weight:300}
+
+  .products{max-width:1200px;margin:0 auto;padding:6px 40px 60px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .pcard{border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;background:#fff;transition:box-shadow .25s ease,transform .25s ease}
+  .pcard:hover{box-shadow:0 16px 44px rgba(0,0,0,.09);transform:translateY(-4px)}
+  .pcard.warm{background:var(--warm-bg);border-color:var(--warm-line)}
+  .pcard-media{height:250px;display:flex;align-items:center;justify-content:center;padding:22px;background:#f7f7f5}
+  .pcard.warm .pcard-media{background:#efe6d6}
+  .pcard-media img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+  .pcard-body{padding:26px 32px 30px;display:flex;flex-direction:column;flex:1}
+  .p-eye{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mute);font-weight:600;margin-bottom:12px}
+  .pcard-body h3{font-weight:300;font-size:1.8rem;letter-spacing:-.01em;line-height:1.05;margin-bottom:4px}
+  .by{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+  .pcard-body p{color:var(--soft);font-size:.96rem;font-weight:300;margin-bottom:20px;line-height:1.6}
+  .p-feats{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+  .p-feats span{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--soft);font-weight:500;border:1px solid var(--line);border-radius:100px;padding:6px 12px}
+  .pcard.warm .p-feats span{border-color:var(--warm-line)}
+  .pcard-body .btn{align-self:flex-start;margin-top:auto}
+
+  .creator{background:#0a0a0a;color:#fff;display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;height:400px}
+  .creator .c-photo{overflow:hidden}
+  .creator .c-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+  .creator .c-text{padding:0 70px;display:flex;flex-direction:column;justify-content:center}
+  .creator .c-eye{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#8f8f8f;font-weight:600;margin-bottom:18px}
+  .creator .c-text h2{font-weight:300;font-size:clamp(1.6rem,2.6vw,2.3rem);line-height:1.2;margin-bottom:20px}
+  .creator .c-text h2 b{font-weight:500}
+  .creator .c-text p{color:#c7c7c7;font-size:.98rem;font-weight:300;line-height:1.7;max-width:460px;margin-bottom:14px}
+
+  footer{background:#0a0a0a;color:#fff;border-top:1px solid rgba(255,255,255,.1);padding:40px 40px}
+  .foot-in{max-width:1360px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+  .foot-in .fl .n{font-size:18px;letter-spacing:.14em}
+  .foot-in .fl .s{font-size:9px;letter-spacing:.3em;color:#8f8f8f;text-transform:uppercase;margin-top:4px}
+  .foot-in .fr{font-size:11px;color:#8f8f8f}
+
+  @media(max-width:900px){
+    .head-in{padding:14px 20px}
+    nav{display:none}
+    .hero{padding:44px 22px 34px}
+    .products{padding:6px 20px 44px}
+    .pgrid{grid-template-columns:1fr;gap:22px}
+    .pcard-media{height:230px}
+    .pcard-body{padding:24px 26px 28px}
+    .creator{grid-template-columns:1fr;height:auto}
+    .creator .c-photo{height:340px}
+    .creator .c-text{padding:44px 24px}
+    .foot-in{flex-direction:column;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-in">
+    <a href="index.html" class="logo"><span class="n">JAVIER VELÁSQUEZ</span><span class="s">Store</span></a>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="landing-plasma-flow/preview-landing-real.html">PLASMAFLOW</a>
+      <a href="plancha-rizadora.html">Plancha Rizadora</a>
+      <a href="#javier">Sobre Javier</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eye">La tienda de Javier Velásquez</div>
+  <h1>Herramientas <b>profesionales</b><br>para tu cabello</h1>
+  <p>Cada herramienta de la tienda está seleccionada y respaldada por Javier Velásquez, para lograr resultados de salón desde casa.</p>
+</section>
+
+<section id="productos" class="products">
+  <div class="pgrid">
+
+    <article class="pcard">
+      <div class="pcard-media"><img src="landing-plasma-flow/images/plasmaflow-cta.png" alt="PLASMAFLOW"></div>
+      <div class="pcard-body">
+        <div class="p-eye">Anti-Frizz Brush</div>
+        <h3>PLASMAFLOW</h3>
+        <div class="by">by Javier Velásquez</div>
+        <p>El cepillo de retoque que controla el frizz, da brillo y logra un acabado tipo blowout en 10 a 15 minutos.</p>
+        <div class="p-feats"><span>Plasma</span><span>Infrarrojo</span><span>Cerámica</span><span>Iones</span></div>
+        <a href="landing-plasma-flow/preview-landing-real.html" class="btn">Ver PLASMAFLOW <span>&rarr;</span></a>
+      </div>
+    </article>
+
+    <article class="pcard warm">
+      <div class="pcard-media"><img src="plancha-rizadora/images/producto-plancha.jpg" alt="Plancha Rizadora by Javier Velásquez"></div>
+      <div class="pcard-body">
+        <div class="p-eye">Plancha Rizadora</div>
+        <h3>Plancha Rizadora</h3>
+        <div class="by">Recomendada por Javier Velásquez</div>
+        <p>Ondas suaves, definidas y duraderas, con iones negativos, placas de cerámica y borde Soft Edge.</p>
+        <div class="p-feats"><span>Iones negativos</span><span>Cerámica</span><span>Soft Edge</span></div>
+        <a href="plancha-rizadora.html" class="btn warm">Ver Plancha Rizadora <span>&rarr;</span></a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="javier" class="creator">
+  <div class="c-photo"><img src="landing-plasma-flow/images/DSC04531.jpg" alt="Javier Velásquez"></div>
+  <div class="c-text">
+    <div class="c-eye">El estilista detrás</div>
+    <h2>Cada herramienta lleva el <b>respaldo de Javier</b>.</h2>
+    <p>Como estilista profesional con años de experiencia y miles de clientas, Javier Velásquez selecciona y recomienda solo las herramientas que cumplen los estándares que busca para el cabello de sus clientas.</p>
+    <p>La tienda crece con cada herramienta que decide respaldar.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div class="fl"><div class="n">JAVIER VELÁSQUEZ</div><div class="s">Store</div></div>
+    <div class="fr">© 2026 Javier Velásquez Store. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+</body>
+</html>

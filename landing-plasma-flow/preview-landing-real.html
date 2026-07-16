@@ -1,0 +1,397 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vista previa PLASMAFLOW</title>
+</head><body style="margin:0">
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+  .pf-root {
+    --bg:#ffffff; --bg-soft:#f8f8f8; --ink:#1a1a1a; --ink-soft:#555; --ink-mute:#999; --line:#ededed; --black:#0a0a0a;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--bg); color:var(--ink); line-height:1.5; -webkit-font-smoothing:antialiased; font-size:14px;
+  }
+  .pf-root *,.pf-root *::before,.pf-root *::after{margin:0;padding:0;box-sizing:border-box}
+  .pf-root a{color:inherit;text-decoration:none}
+  .pf-root img{display:block;max-width:100%}
+
+  .pf-reveal{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
+  .pf-reveal.pf-in{opacity:1;transform:translateY(0)}
+  .pf-stagger>*{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+  .pf-stagger.pf-in>*:nth-child(1){opacity:1;transform:none;transition-delay:0s}
+  .pf-stagger.pf-in>*:nth-child(2){opacity:1;transform:none;transition-delay:.07s}
+  .pf-stagger.pf-in>*:nth-child(3){opacity:1;transform:none;transition-delay:.14s}
+  .pf-stagger.pf-in>*:nth-child(4){opacity:1;transform:none;transition-delay:.21s}
+  .pf-stagger.pf-in>*:nth-child(5){opacity:1;transform:none;transition-delay:.28s}
+  .pf-stagger.pf-in>*:nth-child(6){opacity:1;transform:none;transition-delay:.35s}
+  .pf-stagger.pf-in>*:nth-child(7){opacity:1;transform:none;transition-delay:.42s}
+  .pf-ph{background:#efece6}
+  .pf-root img.pf-lz{opacity:0;transition:opacity .6s ease}
+  .pf-root img.pf-lz.pf-loaded{opacity:1}
+  @media (prefers-reduced-motion:reduce){.pf-reveal,.pf-stagger>*,.pf-root img.pf-lz{opacity:1!important;transform:none!important;transition:none!important}}
+
+  .pf-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+  .pf-header-inner{max-width:1440px;margin:0 auto;padding:16px 36px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+  .pf-logo{display:flex;flex-direction:column;align-items:center;flex-shrink:0;line-height:1;text-decoration:none}
+  .pf-logo-name{font-family:'Inter',sans-serif;font-weight:400;font-size:25px;letter-spacing:0.16em;padding-left:0.16em;color:var(--ink);white-space:nowrap}
+  .pf-logo-by{font-family:'Inter',sans-serif;font-weight:500;font-size:12px;letter-spacing:0.30em;padding-left:0.30em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;white-space:nowrap}
+  .pf-nav{display:flex;gap:30px}
+  .pf-nav a{font-size:12px;color:var(--ink);font-weight:400;transition:opacity .2s;position:relative}
+  .pf-nav a:hover{opacity:.5}
+  .pf-nav a.pf-active{font-weight:500}
+  .pf-header-right{display:flex;align-items:center;gap:18px}
+  .pf-icon-btn{width:20px;height:20px;color:var(--ink);position:relative}
+  .pf-icon-btn .pf-badge{position:absolute;top:-3px;right:-5px;width:13px;height:13px;background:#e63946;border-radius:50%;color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .pf-btn-buy{background:var(--black)!important;color:#fff!important;padding:9px 18px!important;font-size:10px!important;font-weight:600!important;letter-spacing:2px!important;text-transform:uppercase!important;transition:background .2s;border:none!important;cursor:pointer;text-decoration:none!important;display:inline-block;border-radius:0!important}
+  .pf-btn-buy:hover{background:#2a2a2a!important}
+
+  .pf-hero{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);align-items:stretch;height:560px}
+  .pf-hero-content{padding:40px 50px;display:flex;flex-direction:column;justify-content:center}
+  .pf-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink-mute);font-weight:500;margin-bottom:14px}
+  .pf-hero-title{font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(2.4rem,5.2vw,4.6rem);letter-spacing:.12em;line-height:1;color:var(--ink);margin-bottom:4px}
+  .pf-hero-by{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--ink-mute);font-weight:400;margin-bottom:20px}
+  .pf-hero p{color:var(--ink-soft);font-size:.85rem;line-height:1.6;margin-bottom:22px;max-width:360px;font-weight:300}
+  .pf-btn-arrow{display:inline-flex!important;align-items:center;gap:10px;background:var(--black)!important;color:#fff!important;padding:11px 22px!important;font-size:10px!important;font-weight:600!important;letter-spacing:2px!important;text-transform:uppercase!important;border:none!important;cursor:pointer;transition:all .2s;align-self:flex-start;text-decoration:none!important;border-radius:0!important}
+  .pf-btn-arrow:hover{background:#2a2a2a!important;transform:translateX(4px)}
+  .pf-btn-arrow .pf-arrow{font-size:13px;line-height:1}
+  .pf-tech-icons{display:flex;gap:28px;margin-top:28px;flex-wrap:wrap}
+  .pf-tech-icon{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:4px;max-width:80px}
+  .pf-tech-icon svg{width:34px;height:22px;stroke:var(--ink);fill:none}
+  .pf-tech-icon svg circle[fill="currentColor"]{fill:var(--ink);stroke:none}
+  .pf-tech-icon span{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mute);font-weight:500;line-height:1.3}
+  .pf-hero-image{position:relative;overflow:hidden;height:100%}
+  .pf-hero-image img{width:100%;height:100%;object-fit:cover;object-position:center 32%;display:block}
+  .pf-hero-image::before{content:'';position:absolute;top:0;bottom:0;left:0;width:120px;z-index:2;pointer-events:none;background:linear-gradient(to right,var(--bg) 0%,rgba(255,255,255,0) 100%)}
+
+  .pf-problema{background:var(--bg-soft);padding:50px 50px}
+  .pf-problema-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:50px;align-items:center}
+  .pf-problema h2{font-family:'Inter',sans-serif;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.15;letter-spacing:-.02em;font-weight:300;color:var(--ink);margin-bottom:0;max-width:400px}
+  .pf-problema-photos{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .pf-problema-photos .pf-img-wrap{aspect-ratio:3/4;overflow:hidden;mask-image:linear-gradient(to bottom,rgba(0,0,0,.92) 0%,#000 18%,#000 82%,rgba(0,0,0,.92) 100%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.92) 0%,#000 18%,#000 82%,rgba(0,0,0,.92) 100%)}
+  .pf-problema-photos img{width:100%;height:100%;object-fit:cover}
+
+  .pf-solucion{background:var(--bg)}
+  .pf-solucion-main{display:grid;grid-template-columns:1fr 1.4fr;align-items:stretch;height:460px}
+  .pf-solucion-text{padding:40px 50px;display:flex;flex-direction:column;justify-content:center}
+  .pf-solucion-text h2{font-family:'Inter',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.05;letter-spacing:-.02em;font-weight:300;color:var(--ink);margin-bottom:16px}
+  .pf-solucion-text h2 em{font-style:normal;font-weight:500}
+  .pf-solucion-text p{color:var(--ink-soft);font-size:.85rem;line-height:1.6;max-width:360px;font-weight:300}
+  .pf-solucion-text p strong{color:var(--ink);font-weight:600}
+  .pf-solucion-product{overflow:hidden;position:relative;height:100%;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:30px 40px}
+  .pf-solucion-product img{width:100%;height:100%;object-fit:contain;display:block}
+  .pf-solucion-tech-band{background:var(--bg);padding:36px 50px 50px}
+  .pf-solucion-tech-grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+  .pf-solucion-tech .pf-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:8px}
+  .pf-solucion-tech .pf-desc{font-size:11px;color:var(--ink-soft);line-height:1.55;font-weight:300}
+
+  .pf-resultados{background:var(--bg-soft);padding:50px 60px 60px}
+  .pf-resultados-inner{max-width:1320px;margin:0 auto}
+  .pf-resultados-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px}
+  .pf-resultados h2{font-family:'Inter',sans-serif;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.1;letter-spacing:-.02em;font-weight:300;color:var(--ink);max-width:380px}
+  .pf-resultados h2 em{font-style:normal;font-weight:500}
+  .pf-resultados-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
+  .pf-resultado-card .pf-img-wrap{aspect-ratio:3/4;overflow:hidden;background:#e6dfd1}
+  .pf-resultado-card .pf-img-wrap img{width:100%;height:100%;object-fit:cover}
+  .pf-resultado-card .pf-labels{display:flex;justify-content:center;margin-top:10px;padding:0 4px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+
+  .pf-quote-band{max-width:900px;margin:48px auto 0;text-align:center}
+  .pf-quote-band .pf-q-mark{font-size:40px;color:var(--ink-mute);line-height:1;font-weight:300;margin-bottom:10px}
+  .pf-quote-band p{font-family:'Inter',sans-serif;font-size:clamp(1.05rem,1.7vw,1.35rem);line-height:1.6;font-weight:300;color:var(--ink);letter-spacing:-.01em}
+  .pf-quote-band p strong{font-weight:500}
+  .pf-quote-moments{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 14px;margin-top:26px}
+  .pf-quote-moments span{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);font-weight:500;border:1px solid var(--line);border-radius:100px;padding:7px 14px;background:#fff}
+
+  .pf-sobre-mi{background:var(--bg);display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;height:460px}
+  .pf-sobre-mi-photo{overflow:hidden;position:relative;height:100%}
+  .pf-sobre-mi-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}
+  .pf-sobre-mi-photo::after{content:'';position:absolute;top:0;bottom:0;right:0;width:100px;z-index:2;pointer-events:none;background:linear-gradient(to left,var(--bg) 0%,rgba(255,255,255,0) 100%)}
+  .pf-sobre-mi-text{padding:40px 50px;display:flex;flex-direction:column;justify-content:center}
+  .pf-sobre-mi-text h2{font-family:'Inter',sans-serif;font-size:clamp(1.4rem,2vw,1.9rem);line-height:1.25;letter-spacing:-.02em;font-weight:300;color:var(--ink);margin-bottom:18px}
+  .pf-sobre-mi-text h2 em{font-style:normal;font-weight:500}
+  .pf-sobre-mi-text p{color:var(--ink-soft);font-size:.85rem;line-height:1.6;font-weight:300;margin-bottom:12px;max-width:470px}
+  .pf-sobre-mi-signature{margin-top:22px;font-family:'Inter',sans-serif;font-weight:400;font-style:italic;font-size:20px;color:var(--ink);line-height:1;letter-spacing:-.01em}
+  .pf-sobre-mi-name{margin-top:6px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
+
+  .pf-cta-buy{background:var(--black);color:#fff;padding:50px 60px 40px}
+  .pf-cta-buy-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:30px;align-items:center}
+  .pf-cta-buy-left h3.pf-cta-title{font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(1.8rem,3.4vw,2.6rem);letter-spacing:.12em;line-height:1;color:#fff;margin-bottom:6px}
+  .pf-cta-buy-left .pf-cta-by{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
+  .pf-cta-buy-left p{font-family:'Inter',sans-serif;font-size:14px;line-height:1.4;font-weight:300;max-width:230px;color:rgba(255,255,255,.75)}
+  .pf-cta-buy-product{aspect-ratio:4/3;overflow:hidden;position:relative}
+  .pf-cta-buy-product img{width:100%;height:100%;object-fit:contain}
+  .pf-cta-buy-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+  .pf-cta-price{font-family:'Inter',sans-serif;font-size:2.4rem;font-weight:400;letter-spacing:-.02em}
+  .pf-cta-price-note{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:12px}
+  .pf-btn-buy-white{background:#fff!important;color:var(--black)!important;padding:12px 28px!important;font-size:10px!important;font-weight:700!important;letter-spacing:2px!important;text-transform:uppercase!important;border:none!important;cursor:pointer;transition:all .2s;text-decoration:none!important;display:inline-block;border-radius:0!important}
+  .pf-btn-buy-white:hover{background:#f0f0f0!important}
+  .pf-cta-trust{max-width:1320px;margin:30px auto 0;padding-top:28px;border-top:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:repeat(4,1fr) auto;gap:26px;align-items:center}
+  .pf-trust-item{display:flex;gap:12px;align-items:center}
+  .pf-trust-item svg{width:24px;height:24px;stroke:#fff;stroke-width:1;fill:none;flex-shrink:0}
+  .pf-trust-item .pf-text{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#fff;font-weight:600;line-height:1.4}
+  .pf-trust-item .pf-sub{display:block;font-size:9px;color:rgba(255,255,255,.55);text-transform:none;letter-spacing:0;font-weight:400;margin-top:2px}
+  .pf-payment-logos{display:flex;gap:8px;align-items:center;justify-self:end}
+  .pf-pay-logo{height:24px;display:flex;align-items:center;justify-content:center;padding:4px 10px;background:#fff;border-radius:3px;font-weight:800;font-size:10px;letter-spacing:.5px;color:#1a1f71;min-width:42px}
+  .pf-pay-logo.pf-mc{color:#fff;background:linear-gradient(90deg,#eb001b 50%,#f79e1b 50%);padding:4px 6px}
+  .pf-pay-logo.pf-amex{color:#fff;background:#006fcf}
+
+  .pf-footer{background:var(--black);color:#fff;padding:60px 60px 28px}
+  .pf-footer-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.5fr;gap:40px;margin-bottom:40px}
+  .pf-footer-logo{align-items:flex-start}
+  .pf-footer-logo .pf-logo-name{color:#fff;font-size:25px}
+  .pf-footer-logo .pf-logo-by{color:rgba(255,255,255,0.6);font-size:11px}
+  .pf-footer h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:14px}
+  .pf-footer ul{list-style:none}
+  .pf-footer ul li{font-size:11px;color:rgba(255,255,255,.65);margin-bottom:7px;font-weight:300}
+  .pf-footer ul li a:hover{color:#fff}
+  .pf-footer-social{display:flex;gap:14px}
+  .pf-footer-social a{color:#fff}
+  .pf-footer-social svg{width:16px;height:16px}
+  .pf-newsletter-input{display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,.3)}
+  .pf-newsletter-input input{flex:1;border:none;padding:6px 0;font-size:11px;font-family:inherit;background:transparent;outline:none;color:#fff}
+  .pf-newsletter-input input::placeholder{color:rgba(255,255,255,.4)}
+  .pf-newsletter-input button{background:transparent;border:none;cursor:pointer;padding:4px 0;font-size:14px;color:#fff}
+  .pf-newsletter-text{font-size:10px;color:rgba(255,255,255,.55);line-height:1.5;margin-bottom:12px}
+  .pf-footer-bottom{max-width:1320px;margin:0 auto;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.5)}
+  .pf-footer-bottom a{text-decoration:underline}
+
+  @media (max-width:900px){
+    .pf-header-inner{padding:14px 20px;gap:14px}
+    .pf-logo-name{font-size:18px;letter-spacing:0.09em;padding-left:0.09em}
+    .pf-nav{display:none}
+    .pf-hero{grid-template-columns:1fr;height:auto}
+    .pf-hero-content{padding:50px 24px}
+    .pf-hero-image{aspect-ratio:4/5;min-height:auto}
+    .pf-tech-icons{gap:20px}
+    .pf-problema{padding:50px 24px}
+    .pf-problema-inner{grid-template-columns:1fr;gap:40px}
+    .pf-problema-photos{grid-template-columns:repeat(2,1fr)}
+    .pf-solucion-main{grid-template-columns:1fr;height:auto}
+    .pf-solucion-text{padding:50px 24px}
+    .pf-solucion-product{min-height:320px;padding:20px}
+    .pf-solucion-tech-band{padding:28px 24px}
+    .pf-solucion-tech-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+    .pf-resultados{padding:50px 24px}
+    .pf-resultados-header{flex-direction:column;align-items:flex-start;gap:18px}
+    .pf-resultados-grid{grid-template-columns:1fr 1fr}
+    .pf-quote-band{margin-top:38px}
+    .pf-sobre-mi{grid-template-columns:1fr;height:auto}
+    .pf-sobre-mi-photo{min-height:auto;aspect-ratio:4/5}
+    .pf-sobre-mi-text{padding:50px 24px}
+    .pf-cta-buy{padding:50px 24px 30px}
+    .pf-cta-buy-inner{grid-template-columns:1fr;text-align:center}
+    .pf-cta-buy-right{align-items:center}
+    .pf-cta-trust{grid-template-columns:1fr 1fr;gap:16px}
+    .pf-payment-logos{justify-self:center;flex-wrap:wrap;justify-content:center}
+    .pf-footer{padding:40px 24px 24px}
+    .pf-footer-inner{grid-template-columns:1fr 1fr;gap:28px}
+    .pf-footer-bottom{flex-direction:column;gap:8px;text-align:center}
+  }
+</style>
+
+<div class="pf-root">
+
+  <header class="pf-header">
+    <div class="pf-header-inner">
+      <a href="/" class="pf-logo"><span class="pf-logo-name">JAVIER VELÁSQUEZ</span><span class="pf-logo-by">Store</span></a>
+      <nav class="pf-nav">
+        <a href="/">Inicio</a>
+        <a href="#producto" class="pf-active">Producto</a>
+        <a href="#tecnologia">Tecnología</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="/products/#">Tienda</a>
+      </nav>
+      <div class="pf-header-right">
+        <a href="/account" class="pf-icon-btn" aria-label="Cuenta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg></a>
+        <a href="/cart" class="pf-icon-btn" aria-label="Carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
+        <a href="#comprar" class="pf-btn-buy">Comprar Ahora</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="pf-hero pf-reveal" id="producto">
+    <div class="pf-hero-content">
+      <span class="pf-eyebrow">Anti-Frizz Brush</span>
+      <h1 class="pf-hero-title">PLASMAFLOW</h1>
+      <div class="pf-hero-by">by Javier Velásquez</div>
+      <p>El Anti-Frizz Brush creado por Javier Velásquez para recuperar tu cabello en minutos. Controla el frizz, aporta brillo y un acabado tipo blowout, desde casa.</p>
+      <a href="#tecnologia" class="pf-btn-arrow">Descubrir PLASMAFLOW <span class="pf-arrow">→</span></a>
+      <div class="pf-tech-icons">
+        <div class="pf-tech-icon"><svg viewBox="-1 -4 32 20"><circle cx="15" cy="6" r="4.5" stroke-width="0.8" fill="none"/><line x1="15" y1="-3" x2="15" y2="-0.5" stroke-width="0.8" stroke-linecap="round"/><line x1="15" y1="12.5" x2="15" y2="15" stroke-width="0.8" stroke-linecap="round"/><line x1="6" y1="6" x2="8.5" y2="6" stroke-width="0.8" stroke-linecap="round"/><line x1="21.5" y1="6" x2="24" y2="6" stroke-width="0.8" stroke-linecap="round"/><line x1="8.5" y1="-0.5" x2="10.5" y2="1.5" stroke-width="0.8" stroke-linecap="round"/><line x1="19.5" y1="10.5" x2="21.5" y2="12.5" stroke-width="0.8" stroke-linecap="round"/><line x1="8.5" y1="12.5" x2="10.5" y2="10.5" stroke-width="0.8" stroke-linecap="round"/><line x1="19.5" y1="1.5" x2="21.5" y2="-0.5" stroke-width="0.8" stroke-linecap="round"/></svg><span>Infrarrojo</span></div>
+        <div class="pf-tech-icon"><svg viewBox="-1 -4 32 20"><circle cx="15" cy="6" r="3.5" stroke-width="0.9" fill="none"/><circle cx="15" cy="-2" r="0.9" stroke-width="0.7" fill="none"/><circle cx="20.7" cy="0.3" r="0.9" stroke-width="0.7" fill="none"/><circle cx="23" cy="6" r="0.9" stroke-width="0.7" fill="none"/><circle cx="20.7" cy="11.7" r="0.9" stroke-width="0.7" fill="none"/><circle cx="15" cy="14" r="0.9" stroke-width="0.7" fill="none"/><circle cx="9.3" cy="11.7" r="0.9" stroke-width="0.7" fill="none"/><circle cx="7" cy="6" r="0.9" stroke-width="0.7" fill="none"/><circle cx="9.3" cy="0.3" r="0.9" stroke-width="0.7" fill="none"/></svg><span>Plasma<br>Technology</span></div>
+        <div class="pf-tech-icon"><svg viewBox="-1 -4 32 20"><circle cx="15" cy="6" r="9" stroke-width="0.8" fill="none"/><circle cx="15" cy="6" r="1.3" fill="currentColor"/><circle cx="15" cy="0" r="0.9" fill="currentColor"/><circle cx="15" cy="12" r="0.9" fill="currentColor"/><circle cx="9" cy="6" r="0.9" fill="currentColor"/><circle cx="21" cy="6" r="0.9" fill="currentColor"/></svg><span>Cerámica</span></div>
+        <div class="pf-tech-icon"><svg viewBox="-1 -4 32 20"><circle cx="15" cy="6" r="9" stroke-width="0.8" fill="none"/><path d="M 8 3 Q 10.5 1.5 13 3 Q 15.5 4.5 18 3 Q 20.5 1.5 22 3" stroke-width="0.7" fill="none"/><path d="M 8 6 Q 10.5 4.5 13 6 Q 15.5 7.5 18 6 Q 20.5 4.5 22 6" stroke-width="0.7" fill="none"/><path d="M 8 9 Q 10.5 7.5 13 9 Q 15.5 10.5 18 9 Q 20.5 7.5 22 9" stroke-width="0.7" fill="none"/></svg><span>Iones +/−</span></div>
+      </div>
+    </div>
+    <div class="pf-hero-image"><img class="pf-lz" src="images/DSC04534.jpg" alt="PLASMAFLOW en acción" fetchpriority="high" decoding="async"></div>
+  </section>
+
+  <section class="pf-problema pf-reveal">
+    <div class="pf-problema-inner">
+      <div>
+        <span class="pf-eyebrow">El problema</span>
+        <h2>El frizz, el cabello reventado o esponjado que aparece con la humedad y el paso de las horas.</h2>
+      </div>
+      <div class="pf-problema-photos">
+        <div class="pf-img-wrap pf-ph"><img class="pf-lz" src="images/DSC04427.jpg" alt="Cabello con frizz" loading="lazy" decoding="async"></div>
+        <div class="pf-img-wrap pf-ph"><img class="pf-lz" src="images/DSC04410.jpg" alt="Cabello esponjado" loading="lazy" decoding="async"></div>
+        <div class="pf-img-wrap pf-ph"><img class="pf-lz" src="images/DSC04463.jpg" alt="Cabello sin forma" loading="lazy" decoding="async"></div>
+        <div class="pf-img-wrap pf-ph"><img class="pf-lz" src="images/DSC04431.jpg" alt="Cabello desordenado" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pf-solucion pf-reveal" id="tecnologia">
+    <div class="pf-solucion-main">
+      <div class="pf-solucion-text">
+        <span class="pf-eyebrow">La solución</span>
+        <h2>Control.<br>Brillo.<br><em>Movimiento.</em></h2>
+        <p>PLASMAFLOW combina Plasma, Infrarrojo, Cerámica e Iones positivos y negativos para darte <strong>menos frizz, más brillo y un acabado tipo blowout</strong> en 10 a 15 minutos.</p>
+      </div>
+      <div class="pf-solucion-product"><img class="pf-lz" src="images/plasmaflow-cta.png" alt="PLASMAFLOW" loading="lazy" decoding="async"></div>
+    </div>
+    <div class="pf-solucion-tech-band">
+      <div class="pf-solucion-tech-grid pf-stagger">
+        <div class="pf-solucion-tech"><div class="pf-label">Infrarrojo</div><p class="pf-desc">Distribuye el calor de forma uniforme a través del tambor de cerámica, cuidando la apariencia del cabello.</p></div>
+        <div class="pf-solucion-tech"><div class="pf-label">Plasma Technology</div><p class="pf-desc">Junto a los iones, controla la electricidad estática y mejora la apariencia del frizz.</p></div>
+        <div class="pf-solucion-tech"><div class="pf-label">Cerámica</div><p class="pf-desc">Permite un deslizamiento suave sobre la hebra, para un acabado más pulido y con brillo.</p></div>
+        <div class="pf-solucion-tech"><div class="pf-label">Iones + / −</div><p class="pf-desc">El sistema dual de iones deja el cabello más sedoso, con efecto espejo y menos frizz.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pf-resultados pf-reveal" id="resultados">
+    <div class="pf-resultados-inner">
+      <div class="pf-resultados-header">
+        <div>
+          <span class="pf-eyebrow">Resultados reales</span>
+          <h2>Mismo cabello.<br><em>Mejores resultados.</em></h2>
+        </div>
+      </div>
+      <div class="pf-resultados-grid pf-stagger">
+        <div class="pf-resultado-card"><div class="pf-img-wrap pf-ph"><img class="pf-lz" src="images/plasmaflow-antes.jpg" alt="Antes" loading="lazy" decoding="async"></div><div class="pf-labels"><span>Antes</span></div></div>
+        <div class="pf-resultado-card"><div class="pf-img-wrap pf-ph"><img class="pf-lz" src="images/plasmaflow-despues.jpg" alt="Después" loading="lazy" decoding="async"></div><div class="pf-labels"><span>Después</span></div></div>
+        <div class="pf-resultado-card"><div class="pf-img-wrap pf-ph"><img class="pf-lz" src="images/DSC04431.jpg" alt="Antes" loading="lazy" decoding="async"></div><div class="pf-labels"><span>Antes</span></div></div>
+        <div class="pf-resultado-card"><div class="pf-img-wrap pf-ph"><img class="pf-lz" src="images/DSC04636.jpg" alt="Después" loading="lazy" decoding="async"></div><div class="pf-labels"><span>Después</span></div></div>
+        <div class="pf-resultado-card"><div class="pf-img-wrap pf-ph"><img class="pf-lz" src="images/DSC04468.jpg" alt="Antes y después" loading="lazy" decoding="async"></div><div class="pf-labels"><span>Antes / Después</span></div></div>
+        <div class="pf-resultado-card"><div class="pf-img-wrap pf-ph"><img class="pf-lz" src="images/DSC04415.jpg" alt="Antes" loading="lazy" decoding="async"></div><div class="pf-labels"><span>Antes</span></div></div>
+        <div class="pf-resultado-card"><div class="pf-img-wrap pf-ph"><img class="pf-lz" src="images/DSC04500.jpg" alt="Después" loading="lazy" decoding="async"></div><div class="pf-labels"><span>Después</span></div></div>
+      </div>
+      <div class="pf-quote-band">
+        <div class="pf-q-mark">“</div>
+        <p>PLASMAFLOW es la herramienta de retoque que devuelve la vida a tu peinado. En 10 a 15 minutos recuperas un cabello <strong>controlado, brillante y con acabado tipo blowout</strong>, desde casa, sin importar dónde estés.</p>
+        <div class="pf-quote-moments">
+          <span>Antes de una reunión</span>
+          <span>Después del gym</span>
+          <span>Antes de una cena</span>
+          <span>Después de un viaje</span>
+          <span>Cuando el cabello amaneció aplastado</span>
+          <span>Cuando aparece el frizz por la humedad</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pf-sobre-mi pf-reveal" id="sobre-mi">
+    <div class="pf-sobre-mi-photo"><img class="pf-lz" src="images/DSC04531.jpg" alt="Javier Velásquez" loading="lazy" decoding="async"></div>
+    <div class="pf-sobre-mi-text">
+      <span class="pf-eyebrow">Sobre mí</span>
+      <h2>Años trabajando con <em>cabello real.</em></h2>
+      <p>Como estilista profesional con años de experiencia y miles de clientas, creé PLASMAFLOW y selecciono solo las herramientas que cumplen los estándares que busco para el cabello de mis clientas.</p>
+      <p>PLASMAFLOW no busca reemplazar el salón. Te ayuda a recuperar un cabello bonito, controlado y bien peinado desde casa, en minutos.</p>
+      <div class="pf-sobre-mi-signature">Javier Velásquez</div>
+      <div class="pf-sobre-mi-name">Estilista Profesional · Creador de PLASMAFLOW</div>
+    </div>
+  </section>
+
+  <section class="pf-cta-buy pf-reveal" id="comprar">
+    <div class="pf-cta-buy-inner">
+      <div class="pf-cta-buy-left">
+        <h3 class="pf-cta-title">PLASMAFLOW</h3>
+        <div class="pf-cta-by">by Javier Velásquez</div>
+        <p>Tu cabello perfecto, estés donde estés. Dual Voltage 100-240V.</p>
+      </div>
+      <div class="pf-cta-buy-product"><img class="pf-lz" src="images/diagrama-plasmaflow.png" alt="Partes del PLASMAFLOW" loading="lazy" decoding="async"></div>
+      <div class="pf-cta-buy-right">
+        <div class="pf-cta-price">$119.00</div>
+        <div class="pf-cta-price-note">ITBMS y envío incluidos</div>
+        <form action="/cart/add" method="post" style="margin:0;padding:0;">
+          <input type="hidden" name="id" value="0">
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="return_to" value="/checkout">
+          <button type="submit" class="pf-btn-buy-white">Comprar Ahora</button>
+        </form>
+      </div>
+    </div>
+    <div class="pf-cta-trust">
+      <div class="pf-trust-item"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg><div><span class="pf-text">Envío Gratis</span><span class="pf-sub">A toda la ciudad de Panamá</span></div></div>
+      <div class="pf-trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6z"/><path d="M9 12l2 2 4-4"/></svg><div><span class="pf-text">Garantía</span><span class="pf-sub">12 meses</span></div></div>
+      <div class="pf-trust-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><div><span class="pf-text">Dual Voltage</span><span class="pf-sub">100-240V, en todo el mundo</span></div></div>
+      <div class="pf-trust-item"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><div><span class="pf-text">Pago Seguro</span><span class="pf-sub">SSL Certificado</span></div></div>
+      <div class="pf-payment-logos">
+        <span class="pf-pay-logo">VISA</span>
+        <span class="pf-pay-logo pf-mc">MC</span>
+        <span class="pf-pay-logo pf-amex">AMEX</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pf-footer">
+    <div class="pf-footer-inner">
+      <div><div class="pf-logo pf-footer-logo"><span class="pf-logo-name">PLASMAFLOW</span><span class="pf-logo-by">by Javier Velásquez</span></div></div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="#producto">Producto</a></li>
+          <li><a href="#tecnologia">Tecnología</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="/products/#">Tienda</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <div class="pf-footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.4a4 4 0 1 1-7.9 1A4 4 0 0 1 16 11.4z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <p class="pf-newsletter-text">Suscríbete y recibe consejos, novedades y promociones exclusivas.</p>
+        <form onsubmit="return false">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="pf-newsletter-input"><input type="email" name="contact[email]" placeholder="Tu email" required><button type="submit">→</button></div>
+        </form>
+      </div>
+    </div>
+    <div class="pf-footer-bottom">
+      <span>© 2026 PLASMAFLOW by Javier Velásquez. Todos los derechos reservados.</span>
+      <span><a href="/policies/terms-of-service">Términos y condiciones</a> · <a href="/policies/privacy-policy">Política de privacidad</a></span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.pf-root img.pf-lz').forEach(function(img){
+    if (img.complete && img.naturalWidth > 0) { img.classList.add('pf-loaded'); }
+    else { img.addEventListener('load', function(){ img.classList.add('pf-loaded'); }); img.addEventListener('error', function(){ img.classList.add('pf-loaded'); }); }
+  });
+  if (typeof IntersectionObserver === 'undefined') {
+    document.querySelectorAll('.pf-reveal, .pf-stagger').forEach(function(el){ el.classList.add('pf-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('pf-in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.pf-reveal, .pf-stagger').forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+
+
+</body></html>
