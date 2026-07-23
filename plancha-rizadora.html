@@ -12,7 +12,7 @@
     --warm:#0a0a0a; --warm-deep:#2a2a2a; --cream:#f8f8f8; --dark:#0a0a0a;
   }
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:15px;overflow-x:hidden}
+  body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:14px;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
   .wrap{max-width:1360px;margin:0 auto}
@@ -35,26 +35,63 @@
   nav a:hover{opacity:.55}
   nav a.act{color:var(--warm-deep);font-weight:600}
 
-  .hero{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:560px}
-  .hero-txt{padding:70px 60px;display:flex;flex-direction:column;justify-content:center}
-  .hero-txt h1{font-weight:200;font-size:clamp(2.6rem,5vw,4.4rem);letter-spacing:.02em;line-height:1;margin:14px 0 4px}
+  .hero{display:grid;grid-template-columns:1fr 1.05fr;align-items:stretch;min-height:452px}
+  .hero-txt{padding:40px 56px;display:flex;flex-direction:column;justify-content:center}
+  .hero-txt h1{font-weight:200;font-size:clamp(2.3rem,4.4vw,3.7rem);letter-spacing:.02em;line-height:1;margin:12px 0 4px}
   .hero-txt .by{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--mute);margin-bottom:22px}
-  .hero-txt p{color:var(--soft);font-size:1rem;font-weight:300;max-width:380px;margin-bottom:28px;line-height:1.65}
+  .hero-txt p{color:var(--soft);font-size:.95rem;font-weight:300;max-width:380px;margin-bottom:24px;line-height:1.6}
+  .hero-feats{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap}
+  .hero-feat{display:flex;flex-direction:column;gap:6px;max-width:80px}
+  .hero-feat svg{width:22px;height:22px;stroke:var(--warm-deep);fill:none;stroke-width:1.3}
+  .hero-feat span{font-size:8px;letter-spacing:1.3px;text-transform:uppercase;color:var(--mute);font-weight:600;line-height:1.35}
   .hero-img{background:var(--cream);overflow:hidden}
-  .hero-img img{width:100%;height:100%;object-fit:cover}
-  .hero-img .ph{min-height:560px}
+  .hero-collage{display:grid;grid-template-columns:1.12fr 1fr;grid-template-rows:1fr 1fr;gap:6px;height:100%}
+  .hero-collage img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-collage .c-tall{grid-row:1/3}
 
-  .promise{text-align:center;padding:70px 40px 20px}
+  .promise{text-align:center;padding:44px 40px 8px}
   .promise h2{font-weight:300;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.02em;line-height:1.1}
   .promise h2 b{font-weight:500}
   .promise p{color:var(--soft);font-weight:300;max-width:520px;margin:16px auto 0}
 
-  .tech{padding:50px 40px 30px}
+  .tech{padding:38px 40px 22px}
   .tech-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:34px}
   .tech-card .ti{width:40px;height:40px;border:1px solid var(--warm);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--warm-deep)}
   .tech-card .ti svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.4}
   .tech-card h3{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:8px}
   .tech-card p{font-size:13px;color:var(--soft);font-weight:300;line-height:1.6}
+
+  /* Diagrama de tecnologías: foto real + líneas apuntando a cada parte, 2 columnas */
+  .diag-sec{padding:40px 50px 46px}
+  .diag-head{text-align:center;max-width:620px;margin:0 auto 26px}
+  .diag-head h2{font-weight:300;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.1}
+  .diag-head h2 b{font-weight:500}
+  .diag-head p{color:var(--soft);font-weight:300;margin-top:10px;font-size:13px}
+  .diag-main{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:.82fr 1fr;gap:48px;align-items:center}
+  .diag{position:relative;width:100%;max-width:360px;aspect-ratio:832/1248;margin:0 auto;background:#eef0f2;border-radius:14px;overflow:hidden}
+  .diag img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .diag svg{position:absolute;inset:0;width:100%;height:100%}
+  .diag .dl-line{stroke:#2a2a2a;stroke-width:1.6;fill:none;opacity:.5}
+  .diag .dl-num{fill:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:23px;text-anchor:middle}
+  .diag .dl-numbg{fill:#0a0a0a}
+  .diag-legend{display:flex;flex-direction:column;gap:17px}
+  .diag-legend .lg{display:flex;gap:14px;align-items:flex-start}
+  .diag-legend .lg .lgn{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--dark);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .diag-legend .lg h4{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;margin-bottom:4px}
+  .diag-legend .lg p{font-size:13px;color:var(--soft);font-weight:300;line-height:1.5}
+
+  /* Controles reales del producto */
+  .controls{padding:42px 40px;background:var(--cream)}
+  .controls-in{max-width:860px;margin:0 auto;text-align:center}
+  .controls-in h2{font-weight:300;font-size:clamp(1.5rem,2.4vw,2rem);margin:10px 0 6px}
+  .controls-in h2 b{font-weight:500}
+  .controls-in>p{color:var(--soft);font-weight:300;max-width:500px;margin:0 auto 22px;line-height:1.6;font-size:13px}
+  .controls-photo{border-radius:14px;overflow:hidden;max-width:560px;margin:0 auto;box-shadow:0 12px 34px rgba(0,0,0,.07)}
+  .controls-photo img{width:100%;display:block}
+  .controls-specs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+  .controls-specs .cs{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 24px;min-width:110px}
+  .controls-specs .cs .t{font-size:1.35rem;font-weight:400}
+  .controls-specs .cs .n{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-top:4px}
 
   .split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:460px;margin-top:40px}
   .split.rev .s-img{order:2}
@@ -73,12 +110,12 @@
   .checks .ck b{font-size:14px;font-weight:600;min-width:170px}
   .checks .ck span{font-size:13px;color:var(--soft);font-weight:300}
 
-  .uso{padding:70px 40px}
+  .uso{padding:46px 40px}
   .uso-in{max-width:900px;margin:0 auto;text-align:center}
   .uso h2{font-weight:300;font-size:clamp(1.7rem,2.8vw,2.3rem);margin-bottom:10px}
   .uso .note{background:var(--cream);border:1px dashed #ddd;border-radius:14px;padding:26px;margin-top:24px;color:var(--soft);font-size:14px}
 
-  .creator{background:var(--dark);color:#fff;display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;height:400px}
+  .creator{background:var(--dark);color:#fff;display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;height:340px}
   .creator .c-photo{overflow:hidden}
   .creator .c-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
   .creator .c-text{padding:0 70px;display:flex;flex-direction:column;justify-content:center}
@@ -87,7 +124,7 @@
   .creator .c-text h2 b{font-weight:500;color:#fff}
   .creator .c-text p{color:#c7c7c7;font-size:.98rem;font-weight:300;line-height:1.7;max-width:460px;margin-bottom:14px}
 
-  .cta{background:var(--cream);padding:70px 40px}
+  .cta{background:var(--cream);padding:46px 40px}
   .cta-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
   .cta-in h2{font-weight:300;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:.02em}
   .cta-in h2 span{display:block;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mute);margin-top:8px;font-weight:600}
@@ -104,8 +141,11 @@
 
   @media(max-width:900px){
     .head-in{padding:14px 20px} nav{display:none}
-    .hero{grid-template-columns:1fr} .hero-txt{padding:44px 24px} .hero-img .ph{min-height:340px}
+    .hero{grid-template-columns:1fr} .hero-txt{padding:38px 24px} .hero-collage{height:380px}
+    .hero-feats{gap:18px;margin-top:24px}
     .tech-grid{grid-template-columns:1fr 1fr;gap:24px}
+    .diag-sec{padding:36px 24px 40px} .diag-main{grid-template-columns:1fr;gap:26px} .diag{max-width:300px}
+    .controls{padding:40px 24px}
     .split,.split.rev{grid-template-columns:1fr} .split.rev .s-img{order:0} .split .s-img .ph{min-height:320px} .split .s-txt{padding:44px 24px}
     .creator{grid-template-columns:1fr;height:auto} .creator .c-photo{height:320px} .creator .c-text{padding:44px 24px}
     .cta-in{grid-template-columns:1fr;text-align:center} .cta-price{text-align:center}
@@ -136,9 +176,19 @@
     <h1>PLANCHA<br>RIZADORA</h1>
     <p>Una plancha que crea ondas suaves, definidas y duraderas, con la tecnología que Javier eligió para el cabello de sus clientas.</p>
     <a href="#comprar" class="btn">Comprar Ahora <span>&rarr;</span></a>
+    <div class="hero-feats">
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/></svg><span>Ión Negativo</span></div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="2"/><line x1="7" y1="12" x2="17" y2="12"/></svg><span>Cerámica</span></div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg><span>Soft Edge</span></div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><path d="M4 8 Q8 4 12 8 T20 8"/><path d="M4 14 Q8 10 12 14 T20 14"/></svg><span>Ondas</span></div>
+    </div>
   </div>
   <div class="hero-img">
-    <img src="plancha-rizadora/images/producto-plancha.jpg" alt="Plancha Rizadora by Javier Velásquez">
+    <div class="hero-collage">
+      <img class="c-tall" src="plancha-rizadora/images/producto-zoom.jpg" alt="Plancha Rizadora">
+      <img src="plancha-rizadora/images/uso-ondas.jpg" alt="Javier usando la Plancha Rizadora para crear ondas">
+      <img src="plancha-rizadora/images/dentro-placas.jpg" alt="Placas de cerámica abiertas de la Plancha Rizadora">
+    </div>
   </div>
 </section>
 
@@ -172,16 +222,47 @@
   </div>
 </section>
 
-<section class="split rev">
-  <div class="s-img board"><img src="plancha-rizadora/images/board-plancha.jpg" alt="Detalle de la tecnología de la Plancha Rizadora, ión negativo, placas de cerámica, borde Soft Edge y diseño ergonómico"></div>
-  <div class="s-txt">
-    <span class="eye">Ondas perfectas, siempre</span>
-    <h2 style="margin-top:14px">Cada onda, <b>bajo control</b>.</h2>
-    <div class="checks">
-      <div class="ck"><b>Deslizamiento suave</b><span>Las placas de cerámica permiten que el cabello se deslice sin engancharse.</span></div>
-      <div class="ck"><b>Calor uniforme</b><span>Temperatura estable para resultados consistentes en cada pasada.</span></div>
-      <div class="ck"><b>Menos frizz, más brillo</b><span>Los iones negativos dejan el cabello más sedoso y saludable.</span></div>
-      <div class="ck"><b>Protección total</b><span>El borde Soft Edge protege tu piel y da seguridad en cada uso.</span></div>
+<section class="diag-sec">
+  <div class="diag-head">
+    <span class="eye">Por dentro</span>
+    <h2 style="margin-top:12px">Cuatro tecnologías, <b>una sola herramienta</b>.</h2>
+    <p>Cada detalle de la Plancha Rizadora tiene una razón de ser.</p>
+  </div>
+  <div class="diag-main">
+    <div class="diag">
+      <img src="plancha-rizadora/images/producto-limpio.jpg" alt="Plancha Rizadora con sus cuatro tecnologías señaladas">
+      <svg viewBox="0 0 832 1248" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <line class="dl-line" x1="224" y1="244" x2="492" y2="250"/>
+        <line class="dl-line" x1="224" y1="352" x2="576" y2="324"/>
+        <line class="dl-line" x1="240" y1="458" x2="534" y2="422"/>
+        <line class="dl-line" x1="224" y1="585" x2="432" y2="578"/>
+        <g>
+          <circle class="dl-numbg" cx="205" cy="244" r="18"/><text class="dl-num" x="205" y="252">1</text>
+          <circle class="dl-numbg" cx="205" cy="352" r="18"/><text class="dl-num" x="205" y="360">2</text>
+          <circle class="dl-numbg" cx="221" cy="458" r="18"/><text class="dl-num" x="221" y="466">3</text>
+          <circle class="dl-numbg" cx="205" cy="585" r="18"/><text class="dl-num" x="205" y="593">4</text>
+        </g>
+      </svg>
+    </div>
+    <div class="diag-legend">
+      <div class="lg"><div class="lgn">1</div><div><h4>Ión Negativo</h4><p>Orificio emisor de iones negativos que reducen el frizz, sellan la cutícula y aportan brillo, para ondas más definidas y duraderas.</p></div></div>
+      <div class="lg"><div class="lgn">2</div><div><h4>Borde Soft Edge™</h4><p>Borde de silicona termoaislante que protege tu piel del contacto con las placas calientes y da mayor control del mechón.</p></div></div>
+      <div class="lg"><div class="lgn">3</div><div><h4>Placas de Cerámica</h4><p>Cerámica de alta calidad que distribuye el calor de manera uniforme y constante, protegiendo la fibra capilar.</p></div></div>
+      <div class="lg"><div class="lgn">4</div><div><h4>Diseño Ergonómico</h4><p>Forma curva que permite envolver el cabello fácilmente para crear ondas suaves, definidas y duraderas.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="controls">
+  <div class="controls-in">
+    <span class="eye">Controles</span>
+    <h2>Tu calor, <b>a tu ritmo</b>.</h2>
+    <p>Un botón para encender y otro para ajustar. El panel marca tres temperaturas con su tiempo, para que elijas el nivel según tu cabello.</p>
+    <div class="controls-photo"><img src="plancha-rizadora/images/controles.jpg" alt="Panel de control de la Plancha Rizadora con sus tres temperaturas y tres tiempos"></div>
+    <div class="controls-specs">
+      <div class="cs"><div class="t">320°F</div><div class="n">4 segundos</div></div>
+      <div class="cs"><div class="t">360°F</div><div class="n">6 segundos</div></div>
+      <div class="cs"><div class="t">395°F</div><div class="n">8 segundos</div></div>
     </div>
   </div>
 </section>
