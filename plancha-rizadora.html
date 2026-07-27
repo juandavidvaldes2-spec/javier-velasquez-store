@@ -67,18 +67,18 @@
   .diag-head h2{font-weight:300;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.1}
   .diag-head h2 b{font-weight:500}
   .diag-head p{color:var(--soft);font-weight:300;margin-top:10px;font-size:13px}
-  .diag-main{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.15fr 1fr;gap:44px;align-items:center}
-  .diag{position:relative;width:100%;max-width:520px;aspect-ratio:1400/1049;margin:0 auto;background:#eef0f2;border-radius:14px;overflow:hidden}
-  .diag img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .diag svg{position:absolute;inset:0;width:100%;height:100%}
-  .diag .dl-line{stroke:#fff;stroke-width:2;fill:none;opacity:.9}
-  .diag .dl-num{fill:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:34px;text-anchor:middle}
-  .diag .dl-numbg{fill:#0a0a0a;stroke:#fff;stroke-width:3}
-  .diag-legend{display:flex;flex-direction:column;gap:17px}
-  .diag-legend .lg{display:flex;gap:14px;align-items:flex-start}
-  .diag-legend .lg .lgn{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--dark);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:1px}
-  .diag-legend .lg h4{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;margin-bottom:4px}
-  .diag-legend .lg p{font-size:13px;color:var(--soft);font-weight:300;line-height:1.5}
+  /* Collage: cada pieza con su foto y flecha que la señala */
+  .combo{max-width:1020px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .piece{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+  .piece-photo{position:relative;aspect-ratio:1/1;overflow:hidden;background:#eef0f2}
+  .piece-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .piece-photo svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .piece-arrow{stroke:#0a0a0a;stroke-width:1.7;fill:none}
+  .piece-arrow-halo{stroke:#fff;stroke-width:4;fill:none;opacity:.85}
+  .piece-num{position:absolute;top:14px;left:14px;width:28px;height:28px;border-radius:50%;background:var(--dark);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .piece-body{padding:16px 20px 20px}
+  .piece-body h4{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+  .piece-body p{font-size:12.5px;color:var(--soft);font-weight:300;line-height:1.55}
 
   /* Controles reales del producto */
   .controls{padding:42px 40px;background:var(--cream)}
@@ -144,7 +144,8 @@
     .hero{grid-template-columns:1fr} .hero-txt{padding:38px 24px} .hero-collage{height:380px}
     .hero-feats{gap:18px;margin-top:24px}
     .tech-grid{grid-template-columns:1fr 1fr;gap:24px}
-    .diag-sec{padding:36px 24px 40px} .diag-main{grid-template-columns:1fr;gap:26px} .diag{max-width:300px}
+    .diag-sec{padding:36px 18px 40px} .combo{gap:14px}
+    .piece-body{padding:13px 14px 16px} .piece-body p{font-size:12px}
     .controls{padding:40px 24px}
     .split,.split.rev{grid-template-columns:1fr} .split.rev .s-img{order:0} .split .s-img .ph{min-height:320px} .split .s-txt{padding:44px 24px}
     .creator{grid-template-columns:1fr;height:auto} .creator .c-photo{height:320px} .creator .c-text{padding:44px 24px}
@@ -228,28 +229,60 @@
     <h2 style="margin-top:12px">Cuatro tecnologías, <b>una sola herramienta</b>.</h2>
     <p>Cada detalle de la Plancha Rizadora tiene una razón de ser.</p>
   </div>
-  <div class="diag-main">
-    <div class="diag">
-      <img src="plancha-rizadora/images/diagrama-partes.jpg" alt="Detalle de la Plancha Rizadora con sus cuatro tecnologías señaladas">
-      <svg viewBox="0 0 1400 1049" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <line class="dl-line" x1="1230" y1="640" x2="1128" y2="708"/>
-        <line class="dl-line" x1="168" y1="520" x2="296" y2="586"/>
-        <line class="dl-line" x1="716" y1="176" x2="668" y2="320"/>
-        <line class="dl-line" x1="276" y1="898" x2="452" y2="818"/>
-        <g>
-          <circle class="dl-numbg" cx="1262" cy="622" r="28"/><text class="dl-num" x="1262" y="634">1</text>
-          <circle class="dl-numbg" cx="138" cy="500" r="28"/><text class="dl-num" x="138" y="512">2</text>
-          <circle class="dl-numbg" cx="726" cy="150" r="28"/><text class="dl-num" x="726" y="162">3</text>
-          <circle class="dl-numbg" cx="248" cy="918" r="28"/><text class="dl-num" x="248" y="930">4</text>
-        </g>
-      </svg>
+  <div class="combo">
+
+    <div class="piece">
+      <div class="piece-photo">
+        <img src="plancha-rizadora/images/pieza-ion.jpg" alt="Orificio emisor de iones negativos">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><marker id="ah1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0,1 L9,5 L0,9 L2.6,5 Z" fill="#0a0a0a"/></marker></defs>
+          <path class="piece-arrow-halo" d="M79,22 Q57,40 44,57"/>
+          <path class="piece-arrow" d="M79,22 Q57,40 44,57" marker-end="url(#ah1)"/>
+        </svg>
+        <div class="piece-num">1</div>
+      </div>
+      <div class="piece-body"><h4>Ión Negativo</h4><p>El orificio que emite iones negativos para reducir el frizz, sellar la cutícula y dar más brillo.</p></div>
     </div>
-    <div class="diag-legend">
-      <div class="lg"><div class="lgn">1</div><div><h4>Ión Negativo</h4><p>Orificio emisor de iones negativos que reducen el frizz, sellan la cutícula y aportan brillo, para ondas más definidas y duraderas.</p></div></div>
-      <div class="lg"><div class="lgn">2</div><div><h4>Placas de Cerámica</h4><p>Cerámica de alta calidad que distribuye el calor de manera uniforme y constante, protegiendo la fibra capilar.</p></div></div>
-      <div class="lg"><div class="lgn">3</div><div><h4>Borde Soft Edge™</h4><p>Borde de silicona termoaislante que protege tu piel del contacto con las placas calientes y da mayor control del mechón.</p></div></div>
-      <div class="lg"><div class="lgn">4</div><div><h4>Diseño Ergonómico</h4><p>Forma curva que permite envolver el cabello fácilmente para crear ondas suaves, definidas y duraderas.</p></div></div>
+
+    <div class="piece">
+      <div class="piece-photo">
+        <img src="plancha-rizadora/images/pieza-ceramica.jpg" alt="Placas de cerámica doradas">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0,1 L9,5 L0,9 L2.6,5 Z" fill="#0a0a0a"/></marker></defs>
+          <path class="piece-arrow-halo" d="M83,74 Q60,58 49,49"/>
+          <path class="piece-arrow" d="M83,74 Q60,58 49,49" marker-end="url(#ah2)"/>
+        </svg>
+        <div class="piece-num">2</div>
+      </div>
+      <div class="piece-body"><h4>Placas de Cerámica</h4><p>La superficie dorada de cerámica que reparte el calor de forma uniforme y protege el cabello.</p></div>
     </div>
+
+    <div class="piece">
+      <div class="piece-photo">
+        <img src="plancha-rizadora/images/pieza-softedge.jpg" alt="Bordes Soft Edge de silicona">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0,1 L9,5 L0,9 L2.6,5 Z" fill="#0a0a0a"/></marker></defs>
+          <path class="piece-arrow-halo" d="M72,68 Q48,54 37,42"/>
+          <path class="piece-arrow" d="M72,68 Q48,54 37,42" marker-end="url(#ah3)"/>
+        </svg>
+        <div class="piece-num">3</div>
+      </div>
+      <div class="piece-body"><h4>Borde Soft Edge™</h4><p>Los bordes de silicona termoaislante que protegen tu piel del contacto con las placas calientes.</p></div>
+    </div>
+
+    <div class="piece">
+      <div class="piece-photo">
+        <img src="plancha-rizadora/images/pieza-ergonomico.jpg" alt="Forma curva ergonómica">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><marker id="ah4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0,1 L9,5 L0,9 L2.6,5 Z" fill="#0a0a0a"/></marker></defs>
+          <path class="piece-arrow-halo" d="M82,22 Q60,40 49,53"/>
+          <path class="piece-arrow" d="M82,22 Q60,40 49,53" marker-end="url(#ah4)"/>
+        </svg>
+        <div class="piece-num">4</div>
+      </div>
+      <div class="piece-body"><h4>Diseño Ergonómico</h4><p>La forma curva del cuerpo que permite envolver el cabello para crear las ondas.</p></div>
+    </div>
+
   </div>
 </section>
 
