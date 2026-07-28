@@ -122,6 +122,7 @@
   .creator .c-text h2{font-weight:300;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.2;margin:16px 0 20px}
   .creator .c-text h2 b{font-weight:500;color:#fff}
   .creator .c-text p{color:#c7c7c7;font-size:.98rem;font-weight:300;line-height:1.7;max-width:460px;margin-bottom:14px}
+  .creator .c-sign{margin-top:16px;font-size:1.05rem;color:#fff;font-weight:400;letter-spacing:.02em}
 
   .cta{background:var(--cream);padding:46px 40px}
   .cta-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
@@ -130,6 +131,17 @@
   .cta-price{text-align:right}
   .cta-price .pr{font-size:2.4rem;font-weight:400}
   .cta-price .pn{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+
+  /* Animaciones smooth: las secciones se revelan al entrar en pantalla y las
+     imágenes aparecen con un fundido suave en vez de cargar de golpe. Todo bajo
+     .js, así que sin JavaScript o con reduced-motion la página se ve normal. */
+  .js section.reveal{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+  .js section.reveal.in{opacity:1;transform:none}
+  .js img.lz{opacity:0;transition:opacity .7s ease}
+  .js img.lz.loaded{opacity:1}
+  @media (prefers-reduced-motion:reduce){
+    .js section.reveal,.js img.lz{opacity:1!important;transform:none!important;transition:none!important}
+  }
 
   footer{background:var(--dark);color:#fff;padding:40px}
   .foot-in{max-width:1360px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
@@ -310,8 +322,8 @@
   <div class="c-text">
     <span class="eye c-eye">El estilista detrás</span>
     <h2>Una herramienta <b>que Javier eligió</b>.</h2>
-    <p>Tras explorar diversas herramientas, Javier Velásquez adoptó esta y decidió recomendarla a sus clientas por su tecnología y sus resultados.</p>
-    <p>Como estilista profesional, respalda cada herramienta que lleva su nombre.</p>
+    <p>Luego de explorar diversas herramientas como estilista profesional, elegí recomendar y respaldar la Plancha Rizadora a mis clientas, por su tecnología y sus resultados.</p>
+    <div class="c-sign">Javier Velásquez</div>
   </div>
 </section>
 
@@ -332,6 +344,39 @@
     <div class="fr"><a href="index.html">Inicio</a> · <a href="landing-plasma-flow/preview-landing-real.html">PLASMAFLOW</a> · © 2026 Javier Velásquez Store</div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  root.classList.add('js');
+
+  // Imágenes con fundido suave al cargar (evita el "salto" brusco)
+  var imgs = document.querySelectorAll('img');
+  for (var i = 0; i < imgs.length; i++) {
+    (function(img){
+      img.classList.add('lz');
+      if (img.complete && img.naturalWidth > 0) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', function(){ img.classList.add('loaded'); });
+        img.addEventListener('error', function(){ img.classList.add('loaded'); });
+      }
+    })(imgs[i]);
+  }
+
+  // Secciones que se revelan al entrar en pantalla
+  var secs = document.querySelectorAll('section');
+  if ('IntersectionObserver' in window) {
+    for (var j = 0; j < secs.length; j++) secs[j].classList.add('reveal');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    for (var k = 0; k < secs.length; k++) io.observe(secs[k]);
+  }
+})();
+</script>
 
 </body>
 </html>
