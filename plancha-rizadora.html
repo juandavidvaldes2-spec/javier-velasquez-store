@@ -68,17 +68,17 @@
   .diag-head h2 b{font-weight:500}
   .diag-head p{color:var(--soft);font-weight:300;margin-top:10px;font-size:13px}
   /* Collage: cada pieza con su foto y flecha que la señala */
-  .combo{max-width:1020px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:26px}
-  .piece{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+  .combo{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .piece{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
   .piece-photo{position:relative;aspect-ratio:1/1;overflow:hidden;background:#eef0f2}
   .piece-photo img{width:100%;height:100%;object-fit:cover;display:block}
   .piece-photo svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-  .piece-arrow{stroke:#0a0a0a;stroke-width:1.7;fill:none}
-  .piece-arrow-halo{stroke:#fff;stroke-width:4;fill:none;opacity:.85}
-  .piece-num{position:absolute;top:14px;left:14px;width:28px;height:28px;border-radius:50%;background:var(--dark);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
-  .piece-body{padding:16px 20px 20px}
-  .piece-body h4{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;margin-bottom:6px}
-  .piece-body p{font-size:12.5px;color:var(--soft);font-weight:300;line-height:1.55}
+  .piece-arrow{stroke:#1a1a1a;stroke-width:1.4;fill:none;stroke-linecap:round}
+  .piece-arrow-halo{stroke:#fff;stroke-width:3;fill:none;opacity:.5;stroke-linecap:round}
+  .piece-num{position:absolute;top:10px;left:10px;width:22px;height:22px;border-radius:50%;background:var(--dark);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .piece-body{padding:13px 15px 16px}
+  .piece-body h4{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+  .piece-body p{font-size:11.5px;color:var(--soft);font-weight:300;line-height:1.5}
 
   /* Controles reales del producto */
   .controls{padding:42px 40px;background:var(--cream)}
@@ -144,8 +144,8 @@
     .hero{grid-template-columns:1fr} .hero-txt{padding:38px 24px} .hero-collage{height:380px}
     .hero-feats{gap:18px;margin-top:24px}
     .tech-grid{grid-template-columns:1fr 1fr;gap:24px}
-    .diag-sec{padding:36px 18px 40px} .combo{gap:14px}
-    .piece-body{padding:13px 14px 16px} .piece-body p{font-size:12px}
+    .diag-sec{padding:36px 18px 40px} .combo{grid-template-columns:repeat(2,1fr);gap:13px}
+    .piece-body{padding:11px 13px 14px} .piece-body p{font-size:11.5px}
     .controls{padding:40px 24px}
     .split,.split.rev{grid-template-columns:1fr} .split.rev .s-img{order:0} .split .s-img .ph{min-height:320px} .split .s-txt{padding:44px 24px}
     .creator{grid-template-columns:1fr;height:auto} .creator .c-photo{height:320px} .creator .c-text{padding:44px 24px}
@@ -235,9 +235,9 @@
       <div class="piece-photo">
         <img src="plancha-rizadora/images/pieza-ion.jpg" alt="Orificio emisor de iones negativos">
         <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><marker id="ah1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0,1 L9,5 L0,9 L2.6,5 Z" fill="#0a0a0a"/></marker></defs>
-          <path class="piece-arrow-halo" d="M79,22 Q57,40 44,57"/>
-          <path class="piece-arrow" d="M79,22 Q57,40 44,57" marker-end="url(#ah1)"/>
+          <defs><marker id="ah1" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M1.6,1.5 L5.4,4 L1.6,6.5" fill="none" stroke="#1a1a1a" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+          <path class="piece-arrow-halo" d="M74,29 Q58,43 48,55"/>
+          <path class="piece-arrow" d="M74,29 Q58,43 48,55" marker-end="url(#ah1)"/>
         </svg>
         <div class="piece-num">1</div>
       </div>
@@ -248,9 +248,9 @@
       <div class="piece-photo">
         <img src="plancha-rizadora/images/pieza-ceramica.jpg" alt="Placas de cerámica doradas">
         <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0,1 L9,5 L0,9 L2.6,5 Z" fill="#0a0a0a"/></marker></defs>
-          <path class="piece-arrow-halo" d="M83,74 Q60,58 49,49"/>
-          <path class="piece-arrow" d="M83,74 Q60,58 49,49" marker-end="url(#ah2)"/>
+          <defs><marker id="ah2" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M1.6,1.5 L5.4,4 L1.6,6.5" fill="none" stroke="#1a1a1a" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+          <path class="piece-arrow-halo" d="M80,68 Q62,57 53,50"/>
+          <path class="piece-arrow" d="M80,68 Q62,57 53,50" marker-end="url(#ah2)"/>
         </svg>
         <div class="piece-num">2</div>
       </div>
@@ -261,9 +261,9 @@
       <div class="piece-photo">
         <img src="plancha-rizadora/images/pieza-softedge.jpg" alt="Bordes Soft Edge de silicona">
         <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0,1 L9,5 L0,9 L2.6,5 Z" fill="#0a0a0a"/></marker></defs>
-          <path class="piece-arrow-halo" d="M72,68 Q48,54 37,42"/>
-          <path class="piece-arrow" d="M72,68 Q48,54 37,42" marker-end="url(#ah3)"/>
+          <defs><marker id="ah3" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M1.6,1.5 L5.4,4 L1.6,6.5" fill="none" stroke="#1a1a1a" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+          <path class="piece-arrow-halo" d="M67,63 Q49,53 40,45"/>
+          <path class="piece-arrow" d="M67,63 Q49,53 40,45" marker-end="url(#ah3)"/>
         </svg>
         <div class="piece-num">3</div>
       </div>
@@ -274,9 +274,9 @@
       <div class="piece-photo">
         <img src="plancha-rizadora/images/pieza-ergonomico.jpg" alt="Forma curva ergonómica">
         <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><marker id="ah4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0,1 L9,5 L0,9 L2.6,5 Z" fill="#0a0a0a"/></marker></defs>
-          <path class="piece-arrow-halo" d="M82,22 Q60,40 49,53"/>
-          <path class="piece-arrow" d="M82,22 Q60,40 49,53" marker-end="url(#ah4)"/>
+          <defs><marker id="ah4" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M1.6,1.5 L5.4,4 L1.6,6.5" fill="none" stroke="#1a1a1a" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+          <path class="piece-arrow-halo" d="M77,27 Q61,39 51,50"/>
+          <path class="piece-arrow" d="M77,27 Q61,39 51,50" marker-end="url(#ah4)"/>
         </svg>
         <div class="piece-num">4</div>
       </div>
