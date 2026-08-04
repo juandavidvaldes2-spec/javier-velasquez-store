@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2600 520" width="2600" height="520">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&amp;display=swap');
+      .logo { font-family: 'Inter', -apple-system, Arial, sans-serif; font-weight: 400; letter-spacing: 20px; }
+    </style>
+  </defs>
+  <text x="1315" y="300" class="logo" font-size="128" text-anchor="middle" dominant-baseline="middle" fill="#141414">JAVIER VELÁSQUEZ</text>
+</svg>
