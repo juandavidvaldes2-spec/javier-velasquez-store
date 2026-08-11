@@ -26,6 +26,9 @@
 .jv-store .logo .n{font-weight:400;font-size:22px;letter-spacing:.16em;padding-left:.16em}
 .jv-store .logo .s{font-weight:600;font-size:10px;letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;color:var(--soft);margin-top:6px}
 .jv-store nav{display:flex;gap:30px;font-size:12px}
+.jv-store .cart-pill{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;font-weight:600;border:1px solid var(--line);border-radius:100px;padding:8px 14px;white-space:nowrap;transition:background .2s}
+.jv-store .cart-pill:hover{background:#f7f7f5}
+.jv-store .cart-pill b{background:var(--black);color:#fff;border-radius:100px;min-width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px}
 .jv-store nav a:hover{opacity:.5}
 .jv-store .hero{max-width:1360px;margin:0 auto;padding:42px 40px 34px;text-align:center}
 .jv-store .hero .eye{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mute);font-weight:500;margin-bottom:16px}
@@ -70,8 +73,9 @@
 .jv-store .foot-in .fl .s{font-size:9px;letter-spacing:.3em;color:#8f8f8f;text-transform:uppercase;margin-top:4px}
 .jv-store .foot-in .fr{font-size:11px;color:#8f8f8f}
 @media(max-width:900px){
-.jv-store .head-in{padding:14px 20px;justify-content:center}
+.jv-store .head-in{padding:14px 20px;justify-content:center;gap:16px}
 .jv-store nav{display:none}
+.jv-store .cart-pill{padding:7px 12px}
 .jv-store .hero{padding:44px 22px 34px}
 .jv-store .products{padding:6px 20px 44px}
 .jv-store .pgrid{grid-template-columns:1fr;gap:22px}
@@ -94,6 +98,9 @@
       <a href="{{ section.settings.plancha_url }}">Plancha Rizadora</a>
       <a href="#javier">Sobre Javier</a>
     </nav>
+    {%- if cart.item_count > 0 -%}
+      <a href="/cart" class="cart-pill">Carrito <b>{{ cart.item_count }}</b></a>
+    {%- endif -%}
   </div>
 </header>
 

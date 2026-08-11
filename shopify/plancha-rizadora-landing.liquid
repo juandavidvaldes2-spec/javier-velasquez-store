@@ -32,6 +32,9 @@
 .jv-store .logo .n{font-weight:400;font-size:20px;letter-spacing:.15em;padding-left:.15em}
 .jv-store .logo .s{font-weight:600;font-size:9px;letter-spacing:.32em;padding-left:.32em;text-transform:uppercase;color:var(--soft);margin-top:5px}
 .jv-store nav{display:flex;gap:28px;font-size:12px}
+.jv-store .cart-pill{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;font-weight:600;border:1px solid var(--line);border-radius:100px;padding:8px 14px;white-space:nowrap;transition:background .2s}
+.jv-store .cart-pill:hover{background:#f7f7f5}
+.jv-store .cart-pill b{background:var(--black);color:#fff;border-radius:100px;min-width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px}
 .jv-store nav a:hover{opacity:.55}
 .jv-store nav a.act{color:var(--warm-deep);font-weight:600}
 .jv-store .hero{display:grid;grid-template-columns:1fr 1.05fr;align-items:stretch;min-height:452px}
@@ -133,8 +136,9 @@
 .jv-store .foot-in .fr{font-size:11px;color:#8f8f8f}
 .jv-store .foot-in .fr a{color:#c7c7c7}
 @media(max-width:900px){
-.jv-store .head-in{padding:14px 20px;justify-content:center}
+.jv-store .head-in{padding:14px 20px;justify-content:center;gap:16px}
 .jv-store nav{display:none}
+.jv-store .cart-pill{padding:7px 12px}
 .jv-store .hero{grid-template-columns:1fr}
 .jv-store .hero-txt{padding:38px 24px}
 .jv-store .hero-collage{height:380px}
@@ -171,6 +175,9 @@
       <a href="{{ section.settings.plasmaflow_url }}">PLASMAFLOW</a>
       <a href="{{ section.settings.plancha_url }}" class="act">Plancha Rizadora</a>
     </nav>
+    {%- if cart.item_count > 0 -%}
+      <a href="/cart" class="cart-pill">Carrito <b>{{ cart.item_count }}</b></a>
+    {%- endif -%}
   </div>
 </header>
 
@@ -326,7 +333,17 @@
       <div class="pn">Precio</div>
       <div class="pr">$99</div>
       <div class="pn" style="margin-top:8px;margin-bottom:0">Incluye ITBMS y delivery</div>
-      <a href="{{ section.settings.link_comprar | default: '#' }}" class="btn dark" style="margin-top:12px">Comprar Ahora <span>&rarr;</span></a>
+      {%- assign p_plancha = all_products[section.settings.product_handle] -%}
+      {%- if p_plancha.available -%}
+      <form action="/cart/add" method="post" style="margin:0;padding:0">
+        <input type="hidden" name="id" value="{{ p_plancha.selected_or_first_available_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="return_to" value="/checkout">
+        <button type="submit" class="btn dark" style="margin-top:12px;cursor:pointer">Comprar Ahora <span>&rarr;</span></button>
+      </form>
+      {%- else -%}
+      <div class="btn dark" style="margin-top:12px;opacity:.45">Agotado</div>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -372,7 +389,7 @@
     { "type": "text", "id": "plancha_url",    "label": "Pagina Plancha Rizadora", "default": "/pages/plancha-rizadora" },
     { "type": "text", "id": "plasmaflow_url", "label": "Pagina PLASMAFLOW",     "default": "/pages/plasmaflow" },
     { "type": "header", "content": "Boton de compra" },
-    { "type": "text", "id": "link_comprar",   "label": "A donde lleva Comprar Ahora", "default": "/products/plancha-rizadora" }
+    { "type": "text", "id": "product_handle", "label": "Handle del producto", "default": "plancha-rizadora" }
   ],
   "presets": [ { "name": "Plancha Rizadora Landing", "category": "Javier Velasquez Store" } ]
 }
