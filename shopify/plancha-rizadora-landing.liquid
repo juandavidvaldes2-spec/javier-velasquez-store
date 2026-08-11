@@ -106,6 +106,12 @@
 .jv-store .uso-in{max-width:900px;margin:0 auto;text-align:center}
 .jv-store .uso h2{font-weight:300;font-size:clamp(1.7rem,2.8vw,2.3rem);margin-bottom:10px}
 .jv-store .uso .note{background:var(--cream);border:1px dashed #ddd;border-radius:14px;padding:26px;margin-top:24px;color:var(--soft);font-size:14px}
+.jv-store .uso-pasos{margin:24px auto 0;max-width:720px;text-align:left;color:var(--soft);font-size:15px;line-height:1.75}
+.jv-store .uso-pasos p{margin-bottom:14px}
+.jv-store .uso-pasos ol{list-style:decimal;padding-left:22px}
+.jv-store .uso-pasos ul{list-style:disc;padding-left:22px}
+.jv-store .uso-pasos li{margin-bottom:11px}
+.jv-store .uso-pasos strong,.jv-store .uso-pasos b{color:var(--ink);font-weight:600}
 .jv-store .creator{background:var(--dark);color:#fff;display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;height:340px}
 .jv-store .creator .c-photo{overflow:hidden}
 .jv-store .creator .c-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
@@ -164,6 +170,12 @@
 }
 </style>
 
+{%- comment -%}
+  La seccion "Como se usa" solo se muestra si hay pasos escritos en Personalizar.
+  Mientras Javier no los mande, ni la seccion ni su enlace del menu aparecen.
+{%- endcomment -%}
+{%- assign uso_txt = section.settings.pasos_uso | strip_html | strip -%}
+
 <div class="jv-store">
 <header>
   <div class="head-in">
@@ -171,7 +183,7 @@
     <nav>
       <a href="{{ section.settings.home_url }}">Inicio</a>
       <a href="#tecnologia">Tecnología</a>
-      <a href="#uso">Cómo se usa</a>
+      {%- if uso_txt != blank -%}<a href="#uso">Cómo se usa</a>{%- endif -%}
       <a href="{{ section.settings.plasmaflow_url }}">PLASMAFLOW</a>
       <a href="{{ section.settings.plancha_url }}" class="act">Plancha Rizadora</a>
     </nav>
@@ -306,15 +318,15 @@
   </div>
 </section>
 
+{%- if uso_txt != blank -%}
 <section id="uso" class="uso">
   <div class="uso-in">
     <span class="eye">Cómo se usa</span>
     <h2 style="margin-top:12px">Paso a paso</h2>
-    <div class="note">
-      <span class="pend">[PENDIENTE]</span> Aquí van los pasos de uso que Javier va a enviar, cómo preparar el cabello y cómo lograr los rizos u ondas en distintas texturas. Se integran apenas lleguen sus textos definitivos.
-    </div>
+    <div class="uso-pasos">{{ section.settings.pasos_uso }}</div>
   </div>
 </section>
+{%- endif -%}
 
 <section class="creator">
   <div class="c-photo"><img src="{{ 'DSC04531.jpg' | file_url }}" alt="Javier Velásquez"></div>
@@ -389,7 +401,10 @@
     { "type": "text", "id": "plancha_url",    "label": "Pagina Plancha Rizadora", "default": "/pages/plancha-rizadora" },
     { "type": "text", "id": "plasmaflow_url", "label": "Pagina PLASMAFLOW",     "default": "/pages/plasmaflow" },
     { "type": "header", "content": "Boton de compra" },
-    { "type": "text", "id": "product_handle", "label": "Handle del producto", "default": "plancha-rizadora" }
+    { "type": "text", "id": "product_handle", "label": "Handle del producto", "default": "plancha-rizadora" },
+    { "type": "header", "content": "Como se usa" },
+    { "type": "paragraph", "content": "Mientras esto este vacio, la seccion Paso a paso y su enlace del menu NO se muestran. Escribe los pasos aqui y aparecen solos." },
+    { "type": "richtext", "id": "pasos_uso", "label": "Pasos de uso" }
   ],
   "presets": [ { "name": "Plancha Rizadora Landing", "category": "Javier Velasquez Store" } ]
 }
