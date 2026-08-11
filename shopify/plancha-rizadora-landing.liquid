@@ -1,0 +1,379 @@
+{% comment %}
+  Landing Plancha Rizadora -- Javier Velasquez Store (seccion para Shopify)
+  Subir este archivo a: theme/sections/plancha-rizadora-landing.liquid
+  Las imagenes van en Content > Files (ver lista en LEEME-shopify.md).
+  Los enlaces se configuran en Personalizar tema, sin tocar codigo.
+{% endcomment %}
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+.jv-store *{margin:0;padding:0;box-sizing:border-box;font-family:inherit;font-weight:inherit;font-style:inherit;color:inherit;letter-spacing:inherit;line-height:inherit;text-transform:none;text-decoration:none;list-style:none;background:transparent;vertical-align:baseline;border:0}
+.jv-store{
+    --bg:#ffffff; --ink:#1a1a1a; --soft:#555; --mute:#999; --line:#ededed;
+    --warm:#0a0a0a; --warm-deep:#2a2a2a; --cream:#f8f8f8; --dark:#0a0a0a;
+  }
+.jv-store{scroll-behavior:smooth}
+.jv-store{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:14px;overflow-x:hidden}
+.jv-store a{color:inherit;text-decoration:none}
+.jv-store img{display:block;max-width:100%}
+.jv-store .wrap{max-width:1360px;margin:0 auto}
+.jv-store .btn{display:inline-flex;align-items:center;gap:10px;background:var(--warm);color:#fff;padding:13px 26px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
+.jv-store .btn:hover{background:var(--warm-deep);transform:translateX(3px)}
+.jv-store .btn.dark{background:var(--dark)}
+.jv-store .btn.dark:hover{background:#000}
+.jv-store .eye{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mute);font-weight:600}
+.jv-store .ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#efe6d6,#e2d4bf);color:#a08a68;text-align:center;padding:28px}
+.jv-store .ph .pht{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.jv-store .ph .phs{font-size:11px;color:#b6a488;max-width:230px;line-height:1.4}
+.jv-store .pend{color:var(--warm-deep);font-style:italic;font-weight:500}
+.jv-store header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.jv-store .head-in{max-width:1360px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between}
+.jv-store .logo{display:flex;flex-direction:column;align-items:center;line-height:1}
+.jv-store .logo .n{font-weight:400;font-size:20px;letter-spacing:.15em;padding-left:.15em}
+.jv-store .logo .s{font-weight:600;font-size:9px;letter-spacing:.32em;padding-left:.32em;text-transform:uppercase;color:var(--soft);margin-top:5px}
+.jv-store nav{display:flex;gap:28px;font-size:12px}
+.jv-store nav a:hover{opacity:.55}
+.jv-store nav a.act{color:var(--warm-deep);font-weight:600}
+.jv-store .hero{display:grid;grid-template-columns:1fr 1.05fr;align-items:stretch;min-height:452px}
+.jv-store .hero-txt{padding:40px 56px;display:flex;flex-direction:column;justify-content:center}
+.jv-store .hero-txt h1{font-weight:200;font-size:clamp(2.3rem,4.4vw,3.7rem);letter-spacing:.02em;line-height:1;margin:12px 0 4px}
+.jv-store .hero-txt .by{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--mute);margin-bottom:22px}
+.jv-store .hero-txt p{color:var(--soft);font-size:.95rem;font-weight:300;max-width:380px;margin-bottom:24px;line-height:1.6}
+.jv-store .hero-feats{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap}
+.jv-store .hero-feat{display:flex;flex-direction:column;gap:6px;max-width:80px}
+.jv-store .hero-feat svg{width:22px;height:22px;stroke:var(--warm-deep);fill:none;stroke-width:1.3}
+.jv-store .hero-feat span{font-size:8px;letter-spacing:1.3px;text-transform:uppercase;color:var(--mute);font-weight:600;line-height:1.35}
+.jv-store .hero-img{background:var(--cream);overflow:hidden}
+.jv-store .hero-collage{display:grid;grid-template-columns:1.12fr 1fr;grid-template-rows:1fr 1fr;gap:6px;height:100%}
+.jv-store .hero-collage img{width:100%;height:100%;object-fit:cover;display:block}
+.jv-store .hero-collage .c-tall{grid-row:1/3}
+.jv-store .promise{text-align:center;padding:44px 40px 8px}
+.jv-store .promise h2{font-weight:300;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.02em;line-height:1.1}
+.jv-store .promise h2 b{font-weight:500}
+.jv-store .promise p{color:var(--soft);font-weight:300;max-width:520px;margin:16px auto 0}
+.jv-store .tech{padding:38px 40px 22px}
+.jv-store .tech-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:34px}
+.jv-store .tech-card .ti{width:40px;height:40px;border:1px solid var(--warm);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--warm-deep)}
+.jv-store .tech-card .ti svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.4}
+.jv-store .tech-card h3{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.jv-store .tech-card p{font-size:13px;color:var(--soft);font-weight:300;line-height:1.6}
+.jv-store .diag-sec{padding:40px 50px 46px}
+.jv-store .diag-head{text-align:center;max-width:620px;margin:0 auto 26px}
+.jv-store .diag-head h2{font-weight:300;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.1}
+.jv-store .diag-head h2 b{font-weight:500}
+.jv-store .diag-head p{color:var(--soft);font-weight:300;margin-top:10px;font-size:13px}
+.jv-store .combo{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.jv-store .piece{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.jv-store .piece-photo{position:relative;aspect-ratio:1/1;overflow:hidden;background:#eef0f2}
+.jv-store .piece-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.jv-store .piece-photo svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.jv-store .piece-arrow{stroke:#1a1a1a;stroke-width:1.4;fill:none;stroke-linecap:round}
+.jv-store .piece-num{position:absolute;top:10px;left:10px;width:22px;height:22px;border-radius:50%;background:var(--dark);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.jv-store .piece-body{padding:13px 15px 16px}
+.jv-store .piece-body h4{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+.jv-store .piece-body p{font-size:11.5px;color:var(--soft);font-weight:300;line-height:1.5}
+.jv-store .controls{padding:42px 40px;background:var(--cream)}
+.jv-store .controls-in{max-width:860px;margin:0 auto;text-align:center}
+.jv-store .controls-in h2{font-weight:300;font-size:clamp(1.5rem,2.4vw,2rem);margin:10px 0 6px}
+.jv-store .controls-in h2 b{font-weight:500}
+.jv-store .controls-in>p{color:var(--soft);font-weight:300;max-width:500px;margin:0 auto 22px;line-height:1.6;font-size:13px}
+.jv-store .controls-photo{border-radius:14px;overflow:hidden;max-width:560px;margin:0 auto;box-shadow:0 12px 34px rgba(0,0,0,.07)}
+.jv-store .controls-photo img{width:100%;display:block}
+.jv-store .controls-specs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+.jv-store .controls-specs .cs{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 24px;min-width:110px}
+.jv-store .controls-specs .cs .t{font-size:1.35rem;font-weight:400}
+.jv-store .controls-specs .cs .n{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-top:4px}
+.jv-store .split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:460px;margin-top:40px}
+.jv-store .split.rev .s-img{order:2}
+.jv-store .split .s-img{overflow:hidden;background:var(--cream)}
+.jv-store .split .s-img img{width:100%;height:100%;object-fit:cover}
+.jv-store .split .s-img.board{display:flex;align-items:center;justify-content:center;padding:26px}
+.jv-store .split .s-img.board img{width:auto;height:100%;max-height:540px;object-fit:contain}
+.jv-store .split .s-img .ph{min-height:460px}
+.jv-store .split .s-txt{padding:60px;display:flex;flex-direction:column;justify-content:center}
+.jv-store .split .s-txt h2{font-weight:300;font-size:clamp(1.7rem,2.8vw,2.4rem);line-height:1.1;margin-bottom:18px}
+.jv-store .split .s-txt h2 b{font-weight:500}
+.jv-store .split .s-txt p{color:var(--soft);font-weight:300;line-height:1.65;max-width:420px;margin-bottom:14px}
+.jv-store .checks{margin-top:8px}
+.jv-store .checks .ck{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.jv-store .checks .ck:last-child{border-bottom:none}
+.jv-store .checks .ck b{font-size:14px;font-weight:600;min-width:170px}
+.jv-store .checks .ck span{font-size:13px;color:var(--soft);font-weight:300}
+.jv-store .uso{padding:46px 40px}
+.jv-store .uso-in{max-width:900px;margin:0 auto;text-align:center}
+.jv-store .uso h2{font-weight:300;font-size:clamp(1.7rem,2.8vw,2.3rem);margin-bottom:10px}
+.jv-store .uso .note{background:var(--cream);border:1px dashed #ddd;border-radius:14px;padding:26px;margin-top:24px;color:var(--soft);font-size:14px}
+.jv-store .creator{background:var(--dark);color:#fff;display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;height:340px}
+.jv-store .creator .c-photo{overflow:hidden}
+.jv-store .creator .c-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.jv-store .creator .c-text{padding:0 70px;display:flex;flex-direction:column;justify-content:center}
+.jv-store .creator .c-eye{color:#8f8f8f}
+.jv-store .creator .c-text h2{font-weight:300;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.2;margin:16px 0 20px}
+.jv-store .creator .c-text h2 b{font-weight:500;color:#fff}
+.jv-store .creator .c-text p{color:#c7c7c7;font-size:.98rem;font-weight:300;line-height:1.7;max-width:460px;margin-bottom:14px}
+.jv-store .creator .c-sign{margin-top:16px;font-size:1.05rem;color:#fff;font-weight:400;letter-spacing:.02em}
+.jv-store .cta{background:var(--cream);padding:46px 40px}
+.jv-store .cta-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.jv-store .cta-in h2{font-weight:300;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:.02em}
+.jv-store .cta-in h2 span{display:block;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mute);margin-top:8px;font-weight:600}
+.jv-store .cta-price{text-align:right}
+.jv-store .cta-price .pr{font-size:2.4rem;font-weight:400}
+.jv-store .cta-price .pn{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.jv-store.anim-on section.reveal{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.jv-store.anim-on section.reveal.in{opacity:1;transform:none}
+.jv-store.anim-on img.lz{opacity:0;transition:opacity .7s ease}
+.jv-store.anim-on img.lz.loaded{opacity:1}
+@media (prefers-reduced-motion:reduce){
+.jv-store.anim-on section.reveal, .jv-store.anim-on img.lz{opacity:1!important;transform:none!important;transition:none!important}
+}
+.jv-store footer{background:var(--dark);color:#fff;padding:40px}
+.jv-store .foot-in{max-width:1360px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.jv-store .foot-in .n{font-size:18px;letter-spacing:.14em}
+.jv-store .foot-in .s{font-size:9px;letter-spacing:.3em;color:#8f8f8f;text-transform:uppercase;margin-top:4px}
+.jv-store .foot-in .fr{font-size:11px;color:#8f8f8f}
+.jv-store .foot-in .fr a{color:#c7c7c7}
+@media(max-width:900px){
+.jv-store .head-in{padding:14px 20px;justify-content:center}
+.jv-store nav{display:none}
+.jv-store .hero{grid-template-columns:1fr}
+.jv-store .hero-txt{padding:38px 24px}
+.jv-store .hero-collage{height:380px}
+.jv-store .hero-feats{gap:18px;margin-top:24px}
+.jv-store .tech-grid{grid-template-columns:1fr 1fr;gap:24px}
+.jv-store .diag-sec{padding:36px 18px 40px}
+.jv-store .combo{grid-template-columns:repeat(2,1fr);gap:13px}
+.jv-store .piece-body{padding:11px 13px 14px}
+.jv-store .piece-body p{font-size:11.5px}
+.jv-store .controls{padding:40px 24px}
+.jv-store .split, .jv-store .split.rev{grid-template-columns:1fr}
+.jv-store .split.rev .s-img{order:0}
+.jv-store .split .s-img .ph{min-height:320px}
+.jv-store .split .s-txt{padding:44px 24px}
+.jv-store .creator{grid-template-columns:1fr;height:auto}
+.jv-store .creator .c-photo{height:320px}
+.jv-store .creator .c-text{padding:44px 24px}
+.jv-store .cta-in{grid-template-columns:1fr;text-align:center}
+.jv-store .cta-price{text-align:center}
+.jv-store .promise, .jv-store .tech, .jv-store .uso, .jv-store .cta{padding-left:24px;padding-right:24px}
+.jv-store .tech-grid{gap:20px}
+.jv-store .foot-in{flex-direction:column;text-align:center}
+}
+</style>
+
+<div class="jv-store">
+<header>
+  <div class="head-in">
+    <a href="{{ section.settings.home_url }}" class="logo"><span class="n">JAVIER VELÁSQUEZ</span><span class="s">Store</span></a>
+    <nav>
+      <a href="{{ section.settings.home_url }}">Inicio</a>
+      <a href="#tecnologia">Tecnología</a>
+      <a href="#uso">Cómo se usa</a>
+      <a href="{{ section.settings.plasmaflow_url }}">PLASMAFLOW</a>
+      <a href="{{ section.settings.plancha_url }}" class="act">Plancha Rizadora</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-txt">
+    <span class="eye">Ondas perfectas, siempre</span>
+    <h1>PLANCHA<br>RIZADORA</h1>
+    <p>Una plancha que crea ondas suaves, definidas y duraderas, con la tecnología que Javier eligió para el cabello de sus clientas.</p>
+    <a href="#comprar" class="btn">Comprar Ahora <span>&rarr;</span></a>
+    <div class="hero-feats">
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/></svg><span>Ión Negativo</span></div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="2"/><line x1="7" y1="12" x2="17" y2="12"/></svg><span>Cerámica</span></div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg><span>Soft Edge</span></div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><path d="M4 8 Q8 4 12 8 T20 8"/><path d="M4 14 Q8 10 12 14 T20 14"/></svg><span>Ondas</span></div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="hero-collage">
+      <img class="c-tall" src="{{ 'producto-zoom.jpg' | file_url }}" alt="Plancha Rizadora">
+      <img src="{{ 'uso-ondas.jpg' | file_url }}" alt="Javier usando la Plancha Rizadora para crear ondas">
+      <img src="{{ 'dentro-placas.jpg' | file_url }}" alt="Placas de cerámica abiertas de la Plancha Rizadora">
+    </div>
+  </div>
+</section>
+
+<section class="promise">
+  <h2>Ondas más pulidas, <b>uniformes y sin marcas</b>.</h2>
+  <p>Para un cabello más brillante, sin frizz y con movimiento natural.</p>
+</section>
+
+<section id="tecnologia" class="tech">
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="ti"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <h3>Ión Negativo</h3>
+      <p>Orificio emisor de iones negativos que reducen el frizz, sellan la cutícula y aportan brillo. La emisión continua mejora la definición de la onda y prolonga su duración.</p>
+    </div>
+    <div class="tech-card">
+      <div class="ti"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="2"/><line x1="7" y1="12" x2="17" y2="12"/></svg></div>
+      <h3>Placas de Cerámica</h3>
+      <p>Cerámica de alta calidad que distribuye el calor de manera uniforme y constante, evitando daños y protegiendo la fibra capilar.</p>
+    </div>
+    <div class="tech-card">
+      <div class="ti"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div>
+      <h3>Borde Soft Edge</h3>
+      <p>Borde de silicona termoaislante de alta precisión que protege tu piel del contacto con las placas calientes y da mayor control del mechón.</p>
+    </div>
+    <div class="tech-card">
+      <div class="ti"><svg viewBox="0 0 24 24"><path d="M4 8 Q8 4 12 8 T20 8"/><path d="M4 14 Q8 10 12 14 T20 14"/></svg></div>
+      <h3>Diseño Ergonómico</h3>
+      <p>Forma curva que permite envolver el cabello fácilmente para crear ondas suaves, definidas y duraderas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="diag-sec">
+  <div class="diag-head">
+    <span class="eye">Por dentro</span>
+    <h2 style="margin-top:12px">Cuatro tecnologías, <b>una sola herramienta</b>.</h2>
+    <p>Cada detalle de la Plancha Rizadora tiene una razón de ser.</p>
+  </div>
+  <div class="combo">
+
+    <div class="piece">
+      <div class="piece-photo">
+        <img src="{{ 'pieza-ion.jpg' | file_url }}" alt="Orificio emisor de iones negativos">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><marker id="ah1" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M1.6,1.5 L5.4,4 L1.6,6.5" fill="none" stroke="#1a1a1a" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+          <path class="piece-arrow" d="M74,29 Q58,43 48,55" marker-end="url(#ah1)"/>
+        </svg>
+        <div class="piece-num">1</div>
+      </div>
+      <div class="piece-body"><h4>Ión Negativo</h4><p>El orificio que emite iones negativos para reducir el frizz, sellar la cutícula y dar más brillo.</p></div>
+    </div>
+
+    <div class="piece">
+      <div class="piece-photo">
+        <img src="{{ 'pieza-ceramica.jpg' | file_url }}" alt="Placas de cerámica doradas">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><marker id="ah2" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M1.6,1.5 L5.4,4 L1.6,6.5" fill="none" stroke="#1a1a1a" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+          <path class="piece-arrow" d="M72,64 Q57,45 50,30" marker-end="url(#ah2)"/>
+        </svg>
+        <div class="piece-num">2</div>
+      </div>
+      <div class="piece-body"><h4>Placas de Cerámica</h4><p>La superficie dorada de cerámica que reparte el calor de forma uniforme y protege el cabello.</p></div>
+    </div>
+
+    <div class="piece">
+      <div class="piece-photo">
+        <img src="{{ 'pieza-softedge.jpg' | file_url }}" alt="Bordes Soft Edge de silicona">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><marker id="ah3" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M1.6,1.5 L5.4,4 L1.6,6.5" fill="none" stroke="#1a1a1a" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+          <path class="piece-arrow" d="M67,63 Q49,53 40,45" marker-end="url(#ah3)"/>
+        </svg>
+        <div class="piece-num">3</div>
+      </div>
+      <div class="piece-body"><h4>Borde Soft Edge™</h4><p>Los bordes de silicona termoaislante que protegen tu piel del contacto con las placas calientes.</p></div>
+    </div>
+
+    <div class="piece">
+      <div class="piece-photo">
+        <img src="{{ 'pieza-ergonomico.jpg' | file_url }}" alt="Forma curva ergonómica">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><marker id="ah4" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M1.6,1.5 L5.4,4 L1.6,6.5" fill="none" stroke="#1a1a1a" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+          <path class="piece-arrow" d="M77,27 Q61,39 51,50" marker-end="url(#ah4)"/>
+        </svg>
+        <div class="piece-num">4</div>
+      </div>
+      <div class="piece-body"><h4>Diseño Ergonómico</h4><p>La forma curva del cuerpo que permite envolver el cabello para crear las ondas.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="controls">
+  <div class="controls-in">
+    <span class="eye">Controles</span>
+    <h2>Tu calor, <b>a tu ritmo</b>.</h2>
+    <p>Un botón para encender y otro para ajustar. El panel marca tres temperaturas con su tiempo, para que elijas el nivel según tu cabello.</p>
+    <div class="controls-photo"><img src="{{ 'controles.jpg' | file_url }}" alt="Panel de control de la Plancha Rizadora con sus tres temperaturas y tres tiempos"></div>
+    <div class="controls-specs">
+      <div class="cs"><div class="t">320°F</div><div class="n">4 segundos</div></div>
+      <div class="cs"><div class="t">360°F</div><div class="n">6 segundos</div></div>
+      <div class="cs"><div class="t">395°F</div><div class="n">8 segundos</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="uso" class="uso">
+  <div class="uso-in">
+    <span class="eye">Cómo se usa</span>
+    <h2 style="margin-top:12px">Paso a paso</h2>
+    <div class="note">
+      <span class="pend">[PENDIENTE]</span> Aquí van los pasos de uso que Javier va a enviar, cómo preparar el cabello y cómo lograr los rizos u ondas en distintas texturas. Se integran apenas lleguen sus textos definitivos.
+    </div>
+  </div>
+</section>
+
+<section class="creator">
+  <div class="c-photo"><img src="{{ 'DSC04531.jpg' | file_url }}" alt="Javier Velásquez"></div>
+  <div class="c-text">
+    <span class="eye c-eye">El estilista detrás</span>
+    <h2>Una herramienta <b>que Javier eligió</b>.</h2>
+    <p>Luego de explorar diversas herramientas como estilista profesional, elegí recomendar y respaldar la Plancha Rizadora a mis clientas, por su tecnología y sus resultados.</p>
+    <div class="c-sign">Javier Velásquez</div>
+  </div>
+</section>
+
+<section id="comprar" class="cta">
+  <div class="cta-in">
+    <h2>Plancha Rizadora<span>Recomendada por Javier Velásquez</span></h2>
+    <div class="cta-price">
+      <div class="pn">Precio</div>
+      <div class="pr">$99</div>
+      <div class="pn" style="margin-top:8px;margin-bottom:0">Incluye ITBMS y delivery</div>
+      <a href="{{ section.settings.link_comprar | default: '#' }}" class="btn dark" style="margin-top:12px">Comprar Ahora <span>&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div><div class="n">JAVIER VELÁSQUEZ</div><div class="s">Store</div></div>
+    <div class="fr"><a href="{{ section.settings.home_url }}">Inicio</a> · <a href="{{ section.settings.plasmaflow_url }}">PLASMAFLOW</a> · © 2026 Javier Velásquez Store</div>
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  var root = document.currentScript.closest('.jv-store') || document.querySelector('.jv-store');
+  if(!root) return;
+  root.classList.add('anim-on');
+  var imgs = root.querySelectorAll('img');
+  for (var i=0;i<imgs.length;i++){ (function(img){
+    img.classList.add('lz');
+    if(img.complete && img.naturalWidth>0){ img.classList.add('loaded'); }
+    else { img.addEventListener('load',function(){img.classList.add('loaded');});
+           img.addEventListener('error',function(){img.classList.add('loaded');}); }
+  })(imgs[i]); }
+  var secs = root.querySelectorAll('section');
+  if('IntersectionObserver' in window){
+    for (var j=0;j<secs.length;j++) secs[j].classList.add('reveal');
+    var io=new IntersectionObserver(function(ent){ent.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});},
+      {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    for (var k=0;k<secs.length;k++) io.observe(secs[k]);
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Plancha Rizadora Landing",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Enlaces de navegacion" },
+    { "type": "text", "id": "home_url",       "label": "Inicio de la tienda",  "default": "/" },
+    { "type": "text", "id": "plancha_url",    "label": "Pagina Plancha Rizadora", "default": "/pages/plancha-rizadora" },
+    { "type": "text", "id": "plasmaflow_url", "label": "Pagina PLASMAFLOW",     "default": "/pages/plasmaflow" },
+    { "type": "header", "content": "Boton de compra" },
+    { "type": "text", "id": "link_comprar",   "label": "A donde lleva Comprar Ahora", "default": "/products/plancha-rizadora" }
+  ],
+  "presets": [ { "name": "Plancha Rizadora Landing", "category": "Javier Velasquez Store" } ]
+}
+{% endschema %}
