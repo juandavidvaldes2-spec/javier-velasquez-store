@@ -133,14 +133,14 @@
 
     <article class="pcard">
       {%- comment -%}
-        Antes había un object-fit:cover puesto a mano que llenaba la caja
-        cortando la plancha por los lados. Se quitó. Y como la pieza va en
-        diagonal y ocupaba poco de la foto original, se recortó pegada al
-        producto (plancha-card-v2) para que llene la altura de la tarjeta.
-        La caja va del mismo tono que el fondo de la foto, así no se ve el
-        recuadro dentro del recuadro.
+        La foto original tiene la plancha en diagonal, así que en una tarjeta
+        horizontal o se cortaba o quedaba chiquita y flotando. Se giró 68 grados
+        para acostarla, extendiendo el fondo con los píxeles del borde en vez de
+        rellenar con un color, que dejaba costuras diagonales en las esquinas.
+        La caja va en el tono del borde de la foto para que no se vea un
+        recuadro dentro de otro. Sin padding, así llena el ancho.
       {%- endcomment -%}
-      <div class="pcard-media" style="background:#d1cdd3"><img src="{{ 'plancha-card-v2.jpg' | file_url }}" alt="Plancha Rizadora"></div>
+      <div class="pcard-media" style="background:#d2cdd2;padding:0"><img src="{{ 'plancha-card-h.jpg' | file_url }}" alt="Plancha Rizadora" style="width:100%;height:auto;max-height:100%"></div>
       <div class="pcard-body">
         <div class="p-eye">Plancha Rizadora</div>
         <h3>Plancha Rizadora</h3>
