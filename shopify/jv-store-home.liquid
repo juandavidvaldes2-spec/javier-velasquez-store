@@ -114,7 +114,13 @@
   <div class="pgrid">
 
     <article class="pcard">
-      <div class="pcard-media"><img src="{{ 'plasmaflow-cta.png' | file_url }}" alt="PLASMAFLOW"></div>
+      {%- comment -%}
+        Foto de producto sobre negro, elegida por Juan el 11-ago. Antes estaba el
+        diagrama con las etiquetas en inglés (Cool Tip, Ceramic Barrel), que no
+        pinta nada en la portada de una tienda en español. La caja va en negro
+        para que empalme con el fondo de la foto y se vea una sola pieza.
+      {%- endcomment -%}
+      <div class="pcard-media" style="background:#0a0a0a"><img src="{{ 'plasmaflow-card-negro.jpg' | file_url }}" alt="PLASMAFLOW, cepillo con tecnología de plasma e infrarrojo"></div>
       <div class="pcard-body">
         <div class="p-eye">Anti-Frizz Brush</div>
         <h3>PLASMAFLOW</h3>
@@ -126,7 +132,12 @@
     </article>
 
     <article class="pcard">
-      <div class="pcard-media" style="background:#e9ebee;padding:0"><img src="{{ 'producto-limpio-card.jpg' | file_url }}" alt="Plancha Rizadora" style="width:100%;height:100%;object-fit:cover"></div>
+      {%- comment -%}
+        Sin recorte. Antes esta tarjeta tenía puesto a mano un object-fit:cover
+        que llenaba la caja cortando la plancha por los lados. Ahora se comporta
+        igual que la de PlasmaFlow: la pieza se ve entera, centrada y respirando.
+      {%- endcomment -%}
+      <div class="pcard-media"><img src="{{ 'producto-limpio-card.jpg' | file_url }}" alt="Plancha Rizadora"></div>
       <div class="pcard-body">
         <div class="p-eye">Plancha Rizadora</div>
         <h3>Plancha Rizadora</h3>
