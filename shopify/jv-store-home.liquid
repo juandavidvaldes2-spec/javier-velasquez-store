@@ -133,11 +133,14 @@
 
     <article class="pcard">
       {%- comment -%}
-        Sin recorte. Antes esta tarjeta tenía puesto a mano un object-fit:cover
-        que llenaba la caja cortando la plancha por los lados. Ahora se comporta
-        igual que la de PlasmaFlow: la pieza se ve entera, centrada y respirando.
+        Antes había un object-fit:cover puesto a mano que llenaba la caja
+        cortando la plancha por los lados. Se quitó. Y como la pieza va en
+        diagonal y ocupaba poco de la foto original, se recortó pegada al
+        producto (plancha-card-v2) para que llene la altura de la tarjeta.
+        La caja va del mismo tono que el fondo de la foto, así no se ve el
+        recuadro dentro del recuadro.
       {%- endcomment -%}
-      <div class="pcard-media"><img src="{{ 'producto-limpio-card.jpg' | file_url }}" alt="Plancha Rizadora"></div>
+      <div class="pcard-media" style="background:#d1cdd3"><img src="{{ 'plancha-card-v2.jpg' | file_url }}" alt="Plancha Rizadora"></div>
       <div class="pcard-body">
         <div class="p-eye">Plancha Rizadora</div>
         <h3>Plancha Rizadora</h3>
