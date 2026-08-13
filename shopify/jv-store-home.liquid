@@ -133,14 +133,13 @@
 
     <article class="pcard">
       {%- comment -%}
-        La foto original tiene la plancha en diagonal, así que en una tarjeta
-        horizontal o se cortaba o quedaba chiquita y flotando. Se giró 68 grados
-        para acostarla, extendiendo el fondo con los píxeles del borde en vez de
-        rellenar con un color, que dejaba costuras diagonales en las esquinas.
-        La caja va en el tono del borde de la foto para que no se vea un
-        recuadro dentro de otro. Sin padding, así llena el ancho.
+        Foto sobre negro que armó Juan, para que haga juego con la de PlasmaFlow.
+        Antes se usaba la foto sobre gris claro, donde la plancha es blanca y
+        había solo 30 niveles de diferencia entre pieza y fondo: se veía lavada.
+        Girar esa foto para acostarla tampoco servía, porque los brillos quedaban
+        apuntando a un lado que ya no correspondía y se notaba falsa.
       {%- endcomment -%}
-      <div class="pcard-media" style="background:#d2cdd2;padding:0"><img src="{{ 'plancha-card-h.jpg' | file_url }}" alt="Plancha Rizadora" style="width:100%;height:auto;max-height:100%"></div>
+      <div class="pcard-media" style="background:#000;padding:0"><img src="{{ 'plancha-card-negro.jpg' | file_url }}" alt="Plancha Rizadora" style="width:100%;height:auto;max-height:100%"></div>
       <div class="pcard-body">
         <div class="p-eye">Plancha Rizadora</div>
         <h3>Plancha Rizadora</h3>
