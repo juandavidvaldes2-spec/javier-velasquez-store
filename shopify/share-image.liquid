@@ -1,0 +1,43 @@
+{% comment %}
+  La imagen de la tarjeta al compartir el link.
+
+  page_image solo existe en producto, colección y artículo, o si se subió una
+  imagen para compartir en Tienda online, Preferencias. En la PORTADA venía
+  vacía, así que compartir javiervelasquez.store por WhatsApp no mostraba
+  ninguna foto.
+
+  El respaldo es la foto de uno de los dos productos. Se busca por handle porque
+  collections.all.products.first no devuelve nada fuera de un bucle. Si algún
+  día cambian el handle de un producto, esto deja de encontrarlo y la tarjeta
+  vuelve a salir sin foto, no se rompe nada más.
+{% endcomment %}
+{%- liquid
+  assign img = page_image
+  if img == blank
+    assign img = all_products['plasma-flow'].featured_image
+  endif
+  if img == blank
+    assign img = all_products['plancha-rizadora'].featured_image
+  endif
+  if img == blank
+    assign img = settings.logo
+  endif
+-%}
+{%- if img != blank -%}
+  <meta
+    property="og:image"
+    content="http:{{ img | image_url }}"
+  >
+  <meta
+    property="og:image:secure_url"
+    content="https:{{ img | image_url }}"
+  >
+  <meta
+    property="og:image:width"
+    content="{{ img.width }}"
+  >
+  <meta
+    property="og:image:height"
+    content="{{ img.height }}"
+  >
+{%- endif -%}
