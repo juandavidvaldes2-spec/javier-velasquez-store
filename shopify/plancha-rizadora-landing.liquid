@@ -121,6 +121,11 @@
 .jv-store .creator .c-text h2 b{font-weight:500;color:#fff}
 .jv-store .creator .c-text p{color:#c7c7c7;font-size:.98rem;font-weight:300;line-height:1.7;max-width:460px;margin-bottom:14px}
 .jv-store .creator .c-sign{margin-top:16px;font-size:1.05rem;color:#fff;font-weight:400;letter-spacing:.02em}
+/* El header es sticky, así que al saltar con un ancla del menú el título de la
+   sección quedaba escondido debajo. Esto lo baja lo justo. Aplica a todas las
+   secciones con ancla, no solo a la nueva, porque le pasaba a todas. */
+.jv-store section[id]{scroll-margin-top:92px}
+
 /* Tutorial. El video es vertical, de teléfono, por eso el reproductor va angosto y
    centrado en vez de ancho completo. preload="none" para que no baje ni un byte
    hasta que la clienta le dé play. */

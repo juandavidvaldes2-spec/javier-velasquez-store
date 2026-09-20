@@ -112,6 +112,11 @@
   .pf-sobre-mi-signature{margin-top:22px;font-family:'Inter',sans-serif;font-weight:400;font-style:italic;font-size:20px;color:var(--ink);line-height:1;letter-spacing:-.01em}
   .pf-sobre-mi-name{margin-top:6px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mute);font-weight:600}
 
+  /* El header es sticky y mide 81px, así que al saltar con un ancla del menú el
+     título de la sección quedaba escondido debajo. Esto lo baja lo justo.
+     Aplica a las seis secciones, no solo a la nueva, porque le pasaba a todas. */
+  .pf-hero, .pf-solucion, .pf-resultados, .pf-sobre-mi, .pf-tutorial, .pf-cta-buy{scroll-margin-top:92px}
+
   /* Tutorial. El video es vertical, de teléfono, por eso el reproductor va angosto
      y centrado en vez de ancho completo. preload="none" para que no baje ni un byte
      hasta que la clienta le dé play. */
