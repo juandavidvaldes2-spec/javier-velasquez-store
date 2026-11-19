@@ -154,7 +154,10 @@ nav a.act{font-weight:600}
 
 /* El estilista detrás */
 .creator{background:var(--dark);color:#fff;display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;height:380px}
-.creator .c-photo{overflow:hidden}
+.creator .c-photo{overflow:hidden;position:relative}
+/* Pastilla de foto provisional, solo para la vista previa */
+.tag-temp{position:absolute;bottom:16px;left:16px;max-width:calc(100% - 32px);display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.95);color:var(--ink);font-size:11px;line-height:1.35;font-weight:500;padding:8px 14px;border-radius:100px;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.tag-temp::before{content:'';flex:0 0 7px;height:7px;border-radius:50%;background:#c0392b}
 .creator .c-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
 .creator .c-text{padding:44px 70px;display:flex;flex-direction:column;justify-content:center}
 .creator .eye{color:#b9a58f}
