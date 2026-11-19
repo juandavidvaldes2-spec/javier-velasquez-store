@@ -1,0 +1,249 @@
+/* Colección Cabello Natural · Javier Velásquez Store
+   Misma base que las landings de PLASMAFLOW y Plancha Rizadora: Inter, blanco y
+   negro, botones negros. Lo que la diferencia es un tono nude cálido en los
+   fondos, sacado del mismo material que mandó el estudio. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#ffffff; --ink:#1a1a1a; --soft:#555; --mute:#999; --line:#ededed; --dark:#0a0a0a;
+  --nude:#f5efe9; --nude-2:#ece3d9; --nude-line:#e2d6c9; --taupe:#8a7562;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:14px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+section[id]{scroll-margin-top:84px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--dark);color:#fff;padding:13px 26px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
+.btn:hover{background:#2a2a2a;transform:translateX(3px)}
+.eye{display:block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--taupe);font-weight:600}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 30px}
+.sec-head h2{font-weight:300;font-size:clamp(1.6rem,2.7vw,2.3rem);line-height:1.12;margin-top:12px}
+.sec-head h2 b{font-weight:500}
+.sec-head p{color:var(--soft);font-weight:300;margin-top:12px;font-size:14px;line-height:1.6}
+
+/* Aviso de vista previa */
+.preview-bar{background:var(--nude-2);color:#5e4f42;text-align:center;font-size:11.5px;padding:9px 20px;letter-spacing:.2px}
+.preview-bar b{font-weight:600}
+
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.head-in{max-width:1360px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;flex-direction:column;align-items:center;line-height:1}
+.logo .n{font-weight:400;font-size:20px;letter-spacing:.15em;padding-left:.15em}
+.logo .s{font-weight:600;font-size:9px;letter-spacing:.32em;padding-left:.32em;text-transform:uppercase;color:var(--soft);margin-top:5px}
+nav{display:flex;gap:28px;font-size:12px}
+nav a:hover{opacity:.55}
+nav a.act{font-weight:600}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;align-items:stretch;height:520px}
+.hero-txt{padding:40px 56px;display:flex;flex-direction:column;justify-content:center;background:var(--nude)}
+.hero-txt h1{font-weight:200;font-size:clamp(2.3rem,4.4vw,3.7rem);letter-spacing:.02em;line-height:1;margin:14px 0 6px}
+.hero-txt .sub{font-size:13px;color:var(--soft);font-weight:400;margin-bottom:6px}
+.hero-txt .by{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--mute);margin-bottom:22px}
+.hero-txt p{color:var(--soft);font-size:.95rem;font-weight:300;max-width:400px;margin-bottom:18px;line-height:1.6}
+.hero-price{font-size:13px;color:var(--ink);margin-bottom:22px}
+.hero-price b{font-size:1.5rem;font-weight:400;margin-left:4px}
+.hero-txt .btn{align-self:flex-start}
+.hero-feats{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap}
+.hero-feat{display:flex;flex-direction:column;gap:6px;max-width:84px}
+.hero-feat svg{width:22px;height:22px;stroke:var(--taupe);fill:none;stroke-width:1.3}
+.hero-feat span{font-size:8px;letter-spacing:1.3px;text-transform:uppercase;color:var(--soft);font-weight:600;line-height:1.35}
+.hero-img{background:var(--nude-2);overflow:hidden;min-height:0}
+.hero-collage{display:grid;grid-template-columns:1.12fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:6px;height:100%}
+.hero-collage img{width:100%;height:100%;min-height:0;object-fit:cover}
+.hero-collage .c-tall{grid-row:1/3}
+
+.promise{text-align:center;padding:48px 40px 10px}
+.promise h2{font-weight:300;font-size:clamp(1.7rem,2.9vw,2.5rem);letter-spacing:-.02em;line-height:1.15;max-width:760px;margin:0 auto}
+.promise h2 b{font-weight:500}
+.promise p{color:var(--soft);font-weight:300;max-width:540px;margin:16px auto 0;line-height:1.6}
+.need-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;max-width:900px;margin:26px auto 0}
+.need-row span{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--soft);font-weight:500;border:1px solid var(--nude-line);background:var(--nude);border-radius:100px;padding:8px 15px}
+
+/* Tonos */
+.tonos{padding:46px 40px 50px}
+.tono-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.tono-grid.tres{grid-template-columns:repeat(3,1fr);max-width:900px}
+.tono{text-align:left;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;transition:border-color .2s,box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+.tono:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.07)}
+.tono.sel{border-color:var(--taupe);box-shadow:0 0 0 1px var(--taupe)}
+.tono-img{aspect-ratio:4/5;background:#f7f5f2;overflow:hidden}
+.tono-grid.tres .tono-img{aspect-ratio:3/4}
+.tono-img img{width:100%;height:100%;object-fit:cover}
+.tono-grid.tres .tono-img{background:#fff}
+.tono-grid.tres .tono-img img{object-fit:contain;padding:10px 0 0}
+.tono-body{padding:13px 15px 16px}
+.tono-num{font-size:10px;letter-spacing:2px;color:var(--mute);font-weight:600}
+.tono-body h3{font-size:15px;font-weight:500;margin:3px 0 2px}
+.tono-body .d{font-size:11.5px;color:var(--soft);font-weight:300;line-height:1.45;min-height:34px}
+.tono-body .pr{font-size:13px;margin-top:8px}
+.tono-body .pr span{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--mute);margin-right:6px}
+
+/* Banda de foto a lo ancho */
+.band{height:340px;overflow:hidden;position:relative}
+.band img{width:100%;height:100%;object-fit:cover}
+
+/* Tres razones */
+.razones{padding:50px 40px;background:var(--nude)}
+.raz-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.raz{text-align:center}
+.raz .circ{width:168px;height:168px;border-radius:50%;overflow:hidden;margin:0 auto 20px;box-shadow:0 0 0 1px var(--nude-line),0 0 0 7px #fff,0 0 0 8px var(--nude-line)}
+.raz .circ img{width:100%;height:100%;object-fit:cover}
+.raz h3{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.raz p{font-size:13px;color:var(--soft);font-weight:300;line-height:1.6;max-width:280px;margin:0 auto}
+
+/* Usos en dos columnas */
+.split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:440px}
+.split.rev .s-img{order:2}
+.split .s-img{overflow:hidden;background:var(--nude-2);position:relative}
+.split .s-img img{width:100%;height:100%;object-fit:cover}
+.split .s-txt{padding:56px 60px;display:flex;flex-direction:column;justify-content:center}
+.split .s-txt h2{font-weight:300;font-size:clamp(1.6rem,2.7vw,2.3rem);line-height:1.12;margin:12px 0 18px}
+.split .s-txt h2 b{font-weight:500}
+.split .s-txt p{color:var(--soft);font-weight:300;line-height:1.65;max-width:440px;margin-bottom:14px}
+.tag{position:absolute;bottom:14px;background:rgba(255,255,255,.92);color:var(--ink);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:6px 12px;border-radius:100px}
+.tag.l{left:14px}
+.tag.r{right:14px}
+
+/* Paso a paso con fotos */
+.pasos{padding:50px 40px}
+.paso-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.paso-grid.tres{grid-template-columns:repeat(3,1fr);max-width:900px}
+.paso{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.paso-img{aspect-ratio:1/1;overflow:hidden;position:relative;background:var(--nude-2)}
+.paso-grid.tres .paso-img{aspect-ratio:4/5}
+.paso-img img{width:100%;height:100%;object-fit:cover}
+.paso-n{position:absolute;top:10px;left:10px;width:24px;height:24px;border-radius:50%;background:var(--dark);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.paso-body{padding:13px 15px 16px}
+.paso-body h4{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+.paso-body p{font-size:12px;color:var(--soft);font-weight:300;line-height:1.5}
+.nota{max-width:760px;margin:22px auto 0;text-align:center;font-size:12.5px;color:var(--soft);font-weight:300;line-height:1.6}
+.nota b{font-weight:600;color:var(--ink)}
+
+/* Así están hechas */
+.partes{padding:50px 40px;background:var(--nude)}
+.partes-grid{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.parte{background:#fff;border:1px solid var(--nude-line);border-radius:14px;overflow:hidden}
+.parte-fig{position:relative;background:#efeeee;height:380px;overflow:hidden}
+.parte-fig.top{padding-top:92px}
+.parte-fig img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top}
+.parte-fig svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.p-line{stroke:#1a1a1a;stroke-width:1.2;fill:none;stroke-linecap:round}
+.p-lab{position:absolute;top:16px;font-size:11.5px;line-height:1.3;font-weight:500;color:var(--ink);max-width:150px}
+.p-lab small{display:block;font-size:10.5px;color:var(--soft);font-weight:300}
+.parte-body{padding:15px 18px 18px}
+.parte-body h4{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+.parte-body p{font-size:12.5px;color:var(--soft);font-weight:300;line-height:1.55}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
+.duo .parte-fig{height:auto;aspect-ratio:1/1}
+.duo .parte-fig img{height:100%;object-fit:cover}
+
+/* Galería de resultado */
+.galeria{padding:50px 40px}
+.gal-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.gal{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;background:var(--nude-2)}
+.gal img{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+/* Ficha */
+.ficha{padding:46px 40px;text-align:center}
+.ficha-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;max-width:980px;margin:0 auto}
+.ficha-row .cs{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:108px}
+.ficha-row .cs .t{font-size:1.15rem;font-weight:400}
+.ficha-row .cs .n{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--mute);margin-top:4px}
+
+/* El estilista detrás */
+.creator{background:var(--dark);color:#fff;display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;height:380px}
+.creator .c-photo{overflow:hidden}
+.creator .c-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.creator .c-text{padding:44px 70px;display:flex;flex-direction:column;justify-content:center}
+.creator .eye{color:#b9a58f}
+.creator .c-text h2{font-weight:300;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.2;margin:16px 0 20px}
+.creator .c-text h2 b{font-weight:500}
+.creator .c-text p{color:#c7c7c7;font-size:.98rem;font-weight:300;line-height:1.7;max-width:480px;margin-bottom:14px}
+.creator .c-sign{margin-top:10px;font-size:1.05rem;color:#fff;font-weight:400;letter-spacing:.02em}
+
+/* Compra con selector de tono */
+.buy{background:var(--nude);padding:50px 40px}
+.buy-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+.buy-img{border-radius:16px;overflow:hidden;background:#fff;aspect-ratio:4/5}
+.buy-img img{width:100%;height:100%;object-fit:cover;transition:opacity .25s}
+.buy-img.contain img{object-fit:contain;padding:14px}
+.buy-txt h2{font-weight:300;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:.01em;line-height:1.05}
+.buy-txt .by{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mute);margin:8px 0 22px}
+.buy-tono{font-size:12px;color:var(--soft);margin-bottom:10px}
+.buy-tono b{color:var(--ink);font-weight:600}
+.sw-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.sw{width:44px;height:44px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px var(--nude-line);transition:box-shadow .2s}
+.sw img{width:100%;height:100%;object-fit:cover;transform:scale(1.6)}
+.sw.sel{box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--ink)}
+.buy-pr{font-size:2.4rem;font-weight:400;line-height:1}
+.buy-pn{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin:8px 0 18px}
+
+/* Animaciones suaves, iguales a las otras landings */
+.js section.reveal{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.js section.reveal.in{opacity:1;transform:none}
+.js img.lz{opacity:0;transition:opacity .7s ease}
+.js img.lz.loaded{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .js section.reveal,.js img.lz{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+footer{background:var(--dark);color:#fff;padding:40px}
+.foot-in{max-width:1360px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.foot-in .n{font-size:18px;letter-spacing:.14em}
+.foot-in .s{font-size:9px;letter-spacing:.3em;color:#8f8f8f;text-transform:uppercase;margin-top:4px}
+.foot-in .fr{font-size:11px;color:#8f8f8f}
+.foot-in .fr a{color:#c7c7c7}
+
+@media(max-width:900px){
+  .head-in{padding:14px 20px;justify-content:center} nav{display:none}
+  .hero{grid-template-columns:1fr;height:auto} .hero-txt{padding:38px 24px} .hero-collage{height:400px}
+  .hero-feats{gap:18px;margin-top:24px}
+  .promise{padding:40px 24px 6px}
+  .tonos,.razones,.pasos,.partes,.galeria,.ficha,.buy{padding-left:18px;padding-right:18px}
+  .tono-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .tono-grid.tres{grid-template-columns:repeat(3,1fr);gap:8px}
+  .tono-grid.tres .tono-body{padding:10px 10px 12px}
+  .tono-grid.tres .tono-body .d{display:none}
+  .band{height:220px}
+  .raz-grid{grid-template-columns:1fr;gap:34px}
+  .split,.split.rev{grid-template-columns:1fr;min-height:0} .split.rev .s-img{order:0}
+  .split .s-img{height:340px} .split .s-txt{padding:38px 24px}
+  .paso-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .paso-grid.tres{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .paso-grid.tres .paso-body{padding:10px}
+  .paso-grid.tres .paso-body p{font-size:11px}
+  .partes-grid{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr 1fr;gap:10px}
+  .duo .parte-body{padding:11px 12px 13px}
+  .parte-fig{height:330px}
+  .gal-grid{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .creator{grid-template-columns:1fr;height:auto} .creator .c-photo{height:320px} .creator .c-text{padding:40px 24px}
+  .buy-in{grid-template-columns:1fr;gap:26px} .buy-img{max-width:420px;width:100%;margin:0 auto}
+  .foot-in{flex-direction:column;text-align:center}
+}
+@media(max-width:900px){
+  /* Compactar en celular: los 5 tonos se deslizan de lado, las razones van en fila
+     y la ficha en cuadrícula de 3 */
+  .hero-feats{gap:12px} .hero-feat{max-width:72px}
+  .tono-grid:not(.tres){display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:0 -18px;padding:2px 18px 10px;scrollbar-width:none}
+  .tono-grid:not(.tres)::-webkit-scrollbar{display:none}
+  .tono-grid:not(.tres) .tono{flex:0 0 40%;scroll-snap-align:start}
+  .desliza{display:block;text-align:center;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-top:6px}
+  .razones{padding-top:40px;padding-bottom:40px}
+  .raz-grid{gap:22px}
+  .raz{display:grid;grid-template-columns:96px 1fr;grid-template-rows:auto auto;column-gap:16px;row-gap:4px;text-align:left}
+  .raz .circ{grid-row:1/3;align-self:center;width:96px;height:96px;margin:0;box-shadow:0 0 0 1px var(--nude-line),0 0 0 4px #fff,0 0 0 5px var(--nude-line)}
+  .raz h3{align-self:end;margin:0}
+  .raz p{align-self:start;margin:0;max-width:none;font-size:12.5px}
+  .ficha-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .ficha-row .cs{min-width:0;padding:11px 6px}
+  .ficha-row .cs .t{font-size:.98rem}
+  .ficha-row .cs .n{font-size:8.5px;letter-spacing:1px}
+}
+@media(min-width:901px){.desliza{display:none}}
+@media(max-width:420px){
+  .tono-grid:not(.tres) .tono-body .d{min-height:0}
+  .paso-grid.tres .paso-body h4{font-size:10px}
+}
