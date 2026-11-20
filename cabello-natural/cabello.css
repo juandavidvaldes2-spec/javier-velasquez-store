@@ -1,12 +1,12 @@
 /* Colección Cabello Natural · Javier Velásquez Store
    Misma base que las landings de PLASMAFLOW y Plancha Rizadora: Inter, blanco y
-   negro, botones negros. Lo que la diferencia es un tono nude cálido en los
-   fondos, sacado del mismo material que mandó el estudio. */
+   negro, botones negros. Los fondos nude pasaron a blanco el 20-nov a pedido
+   de Marianela. Queda el acento taupe en etiquetas e iconos. */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --bg:#ffffff; --ink:#1a1a1a; --soft:#555; --mute:#999; --line:#ededed; --dark:#0a0a0a;
-  --nude:#f5efe9; --nude-2:#ece3d9; --nude-line:#e2d6c9; --taupe:#8a7562;
+  --nude:#ffffff; --nude-2:#f5f5f5; --nude-line:#e8e8e8; --taupe:#8a7562;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:14px;overflow-x:hidden}
@@ -170,7 +170,7 @@ nav a.act{font-weight:600}
 /* Compra con selector de tono */
 .buy{background:var(--nude);padding:50px 40px}
 .buy-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
-.buy-img{border-radius:16px;overflow:hidden;background:#fff;aspect-ratio:4/5;position:relative}
+.buy-img{border-radius:16px;overflow:hidden;background:#fff;aspect-ratio:4/5;position:relative;border:1px solid var(--line)}
 /* Recuadro que muestra que el set trae 5 piezas */
 .buy-set{position:absolute;left:14px;bottom:14px;width:clamp(124px,30%,170px);background:#fff;border-radius:12px;padding:6px 6px 8px;box-shadow:0 8px 22px rgba(0,0,0,.16)}
 .buy-img .buy-set img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:8px;padding:0}
