@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "jv-store-home",
+      "settings": {
+        "home_url": "/",
+        "plancha_url": "/pages/plancha-rizadora",
+        "plasmaflow_url": "/pages/plasmaflow",
+        "extensiones_url": "/pages/extensiones-de-cortina",
+        "ponytail_url": "/pages/ponytail"
+      }
+    }
+  },
+  "order": ["main"]
+}

@@ -1,0 +1,494 @@
+{% comment %}
+  Ponytail Landing -- Javier Velasquez Store, Colección Cabello Natural
+  Generada por _scripts/d_cabello.py desde github-upload/cabello-natural/ponytail.html
+  El selector de tono cambia la variante que va al carrito.
+{% endcomment %}
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+.jv-store *{margin:0;padding:0;box-sizing:border-box;font-family:inherit;font-weight:inherit;font-style:inherit;color:inherit;letter-spacing:inherit;line-height:inherit;text-transform:none;text-decoration:none;list-style:none;background:transparent;vertical-align:baseline;border:0}
+.jv-store{
+  --bg:#ffffff; --ink:#1a1a1a; --soft:#555; --mute:#999; --line:#ededed; --dark:#0a0a0a;
+  --nude:#ffffff; --nude-2:#f5f5f5; --nude-line:#e8e8e8; --taupe:#8a7562;
+}
+.jv-store{scroll-behavior:smooth}
+.jv-store{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:14px;overflow-x:hidden}
+.jv-store a{color:inherit;text-decoration:none}
+.jv-store img{display:block;max-width:100%}
+.jv-store button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.jv-store section[id]{scroll-margin-top:84px}
+.jv-store .btn{display:inline-flex;align-items:center;gap:10px;background:var(--dark);color:#fff;padding:13px 26px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
+.jv-store .btn:hover{background:#2a2a2a;transform:translateX(3px)}
+.jv-store .eye{display:block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--taupe);font-weight:600}
+.jv-store .sec-head{text-align:center;max-width:640px;margin:0 auto 30px}
+.jv-store .sec-head h2{font-weight:300;font-size:clamp(1.6rem,2.7vw,2.3rem);line-height:1.12;margin-top:12px}
+.jv-store .sec-head h2 b{font-weight:500}
+.jv-store .sec-head p{color:var(--soft);font-weight:300;margin-top:12px;font-size:14px;line-height:1.6}
+.jv-store .preview-bar{background:var(--nude-2);color:#5e4f42;text-align:center;font-size:11.5px;padding:9px 20px;letter-spacing:.2px}
+.jv-store .preview-bar b{font-weight:600}
+.jv-store header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.jv-store .head-in{max-width:1360px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between}
+.jv-store .logo{display:flex;flex-direction:column;align-items:center;line-height:1}
+.jv-store .logo .n{font-weight:400;font-size:20px;letter-spacing:.15em;padding-left:.15em}
+.jv-store .logo .s{font-weight:600;font-size:9px;letter-spacing:.32em;padding-left:.32em;text-transform:uppercase;color:var(--soft);margin-top:5px}
+.jv-store nav{display:flex;gap:28px;font-size:12px}
+.jv-store nav a:hover{opacity:.55}
+.jv-store nav a.act{font-weight:600}
+.jv-store .hero{display:grid;grid-template-columns:1fr 1.05fr;align-items:stretch;height:520px}
+.jv-store .hero-txt{padding:40px 56px;display:flex;flex-direction:column;justify-content:center;background:var(--nude)}
+.jv-store .hero-txt h1{font-weight:200;font-size:clamp(2.3rem,4.4vw,3.7rem);letter-spacing:.02em;line-height:1;margin:14px 0 6px}
+.jv-store .hero-txt .sub{font-size:13px;color:var(--soft);font-weight:400;margin-bottom:6px}
+.jv-store .hero-txt .by{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--mute);margin-bottom:22px}
+.jv-store .hero-txt p{color:var(--soft);font-size:.95rem;font-weight:300;max-width:400px;margin-bottom:18px;line-height:1.6}
+.jv-store .hero-price{font-size:13px;color:var(--ink);margin-bottom:22px}
+.jv-store .hero-price b{font-size:1.5rem;font-weight:400;margin-left:4px}
+.jv-store .hero-txt .btn{align-self:flex-start}
+.jv-store .hero-feats{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap}
+.jv-store .hero-feat{display:flex;flex-direction:column;gap:6px;max-width:84px}
+.jv-store .hero-feat svg{width:22px;height:22px;stroke:var(--taupe);fill:none;stroke-width:1.3}
+.jv-store .hero-feat span{font-size:8px;letter-spacing:1.3px;text-transform:uppercase;color:var(--soft);font-weight:600;line-height:1.35}
+.jv-store .hero-img{background:var(--nude-2);overflow:hidden;min-height:0}
+.jv-store .hero-collage{display:grid;grid-template-columns:1.12fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:6px;height:100%}
+.jv-store .hero-collage img{width:100%;height:100%;min-height:0;object-fit:cover}
+.jv-store .hero-collage .c-tall{grid-row:1/3}
+.jv-store .hero-uno{width:100%;height:100%;object-fit:cover;object-position:center top}
+.jv-store .promise{text-align:center;padding:48px 40px 10px}
+.jv-store .promise h2{font-weight:300;font-size:clamp(1.7rem,2.9vw,2.5rem);letter-spacing:-.02em;line-height:1.15;max-width:760px;margin:0 auto}
+.jv-store .promise h2 b{font-weight:500}
+.jv-store .promise p{color:var(--soft);font-weight:300;max-width:540px;margin:16px auto 0;line-height:1.6}
+.jv-store .need-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;max-width:900px;margin:26px auto 0}
+.jv-store .need-row span{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--soft);font-weight:500;border:1px solid var(--nude-line);background:var(--nude);border-radius:100px;padding:8px 15px}
+.jv-store .tonos{padding:46px 40px 50px}
+.jv-store .tono-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.jv-store .tono-grid.tres{grid-template-columns:repeat(3,1fr);max-width:900px}
+.jv-store .tono{text-align:left;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;transition:border-color .2s,box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+.jv-store .tono:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.07)}
+.jv-store .tono.sel{border-color:var(--taupe);box-shadow:0 0 0 1px var(--taupe)}
+.jv-store .tono-img{aspect-ratio:4/5;background:#f7f5f2;overflow:hidden}
+.jv-store .tono-grid.tres .tono-img{aspect-ratio:3/4}
+.jv-store .tono-img img{width:100%;height:100%;object-fit:cover}
+.jv-store .tono-grid.tres .tono-img{background:#fff}
+.jv-store .tono-grid.tres .tono-img img{object-fit:contain;padding:10px 0 0}
+.jv-store .tono-body{padding:13px 15px 16px}
+.jv-store .tono-num{font-size:10px;letter-spacing:2px;color:var(--mute);font-weight:600}
+.jv-store .tono-body h3{font-size:15px;font-weight:500;margin:3px 0 2px}
+.jv-store .tono-body .d{font-size:11.5px;color:var(--soft);font-weight:300;line-height:1.45;min-height:34px}
+.jv-store .tono-body .pr{font-size:13px;margin-top:8px}
+.jv-store .tono-body .pr span{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--mute);margin-right:6px}
+.jv-store .band{height:340px;overflow:hidden;position:relative}
+.jv-store .band img{width:100%;height:100%;object-fit:cover}
+.jv-store .razones{padding:50px 40px;background:var(--nude)}
+.jv-store .raz-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.jv-store .raz{text-align:center}
+.jv-store .raz .circ{width:168px;height:168px;border-radius:50%;overflow:hidden;margin:0 auto 20px;box-shadow:0 0 0 1px var(--nude-line),0 0 0 7px #fff,0 0 0 8px var(--nude-line)}
+.jv-store .raz .circ img{width:100%;height:100%;object-fit:cover}
+.jv-store .raz h3{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.jv-store .raz p{font-size:13px;color:var(--soft);font-weight:300;line-height:1.6;max-width:280px;margin:0 auto}
+.jv-store .split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:440px}
+.jv-store .split.rev .s-img{order:2}
+.jv-store .split .s-img{overflow:hidden;background:var(--nude-2);position:relative}
+.jv-store .split .s-img img{width:100%;height:100%;object-fit:cover}
+.jv-store .split .s-txt{padding:56px 60px;display:flex;flex-direction:column;justify-content:center}
+.jv-store .split .s-txt h2{font-weight:300;font-size:clamp(1.6rem,2.7vw,2.3rem);line-height:1.12;margin:12px 0 18px}
+.jv-store .split .s-txt h2 b{font-weight:500}
+.jv-store .split .s-txt p{color:var(--soft);font-weight:300;line-height:1.65;max-width:440px;margin-bottom:14px}
+.jv-store .tag{position:absolute;bottom:14px;background:rgba(255,255,255,.92);color:var(--ink);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:6px 12px;border-radius:100px}
+.jv-store .tag.l{left:14px}
+.jv-store .tag.r{right:14px}
+.jv-store .pasos{padding:50px 40px}
+.jv-store .paso-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.jv-store .paso-grid.tres{grid-template-columns:repeat(3,1fr);max-width:900px}
+.jv-store .paso{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.jv-store .paso-img{aspect-ratio:1/1;overflow:hidden;position:relative;background:var(--nude-2)}
+.jv-store .paso-grid.tres .paso-img{aspect-ratio:4/5}
+.jv-store .paso-img img{width:100%;height:100%;object-fit:cover}
+.jv-store .paso-n{position:absolute;top:10px;left:10px;width:24px;height:24px;border-radius:50%;background:var(--dark);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.jv-store .paso-body{padding:13px 15px 16px}
+.jv-store .paso-body h4{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+.jv-store .paso-body p{font-size:12px;color:var(--soft);font-weight:300;line-height:1.5}
+.jv-store .nota{max-width:760px;margin:22px auto 0;text-align:center;font-size:12.5px;color:var(--soft);font-weight:300;line-height:1.6}
+.jv-store .nota b{font-weight:600;color:var(--ink)}
+.jv-store .partes{padding:50px 40px;background:var(--nude)}
+.jv-store .partes-grid{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.jv-store .parte{background:#fff;border:1px solid var(--nude-line);border-radius:14px;overflow:hidden}
+.jv-store .parte-fig{position:relative;background:#efeeee;height:380px;overflow:hidden}
+.jv-store .parte-fig.top{padding-top:92px}
+.jv-store .parte-fig img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top}
+.jv-store .parte-fig svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.jv-store .p-line{stroke:#1a1a1a;stroke-width:1.2;fill:none;stroke-linecap:round}
+.jv-store .p-lab{position:absolute;top:16px;font-size:11.5px;line-height:1.3;font-weight:500;color:var(--ink);max-width:150px}
+.jv-store .p-lab small{display:block;font-size:10.5px;color:var(--soft);font-weight:300}
+.jv-store .parte-body{padding:15px 18px 18px}
+.jv-store .parte-body h4{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+.jv-store .parte-body p{font-size:12.5px;color:var(--soft);font-weight:300;line-height:1.55}
+.jv-store .duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
+.jv-store .duo .parte-fig{height:auto;aspect-ratio:1/1}
+.jv-store .duo .parte-fig img{height:100%;object-fit:cover}
+.jv-store .galeria{padding:50px 40px}
+.jv-store .gal-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.jv-store .gal{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;background:var(--nude-2)}
+.jv-store .gal img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.jv-store .ficha{padding:46px 40px;text-align:center}
+.jv-store .ficha-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;max-width:980px;margin:0 auto}
+.jv-store .ficha-row .cs{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:108px}
+.jv-store .ficha-row .cs .t{font-size:1.15rem;font-weight:400}
+.jv-store .ficha-row .cs .n{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--mute);margin-top:4px}
+.jv-store .creator{background:var(--dark);color:#fff;display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;height:380px}
+.jv-store .creator .c-photo{overflow:hidden;position:relative}
+.jv-store .tag-temp{position:absolute;bottom:16px;left:16px;max-width:calc(100% - 32px);display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.95);color:var(--ink);font-size:11px;line-height:1.35;font-weight:500;padding:8px 14px;border-radius:100px;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.jv-store .tag-temp::before{content:'';flex:0 0 7px;height:7px;border-radius:50%;background:#c0392b}
+.jv-store .creator .c-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.jv-store .creator .c-text{padding:44px 70px;display:flex;flex-direction:column;justify-content:center}
+.jv-store .creator .eye{color:#b9a58f}
+.jv-store .creator .c-text h2{font-weight:300;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.2;margin:16px 0 20px}
+.jv-store .creator .c-text h2 b{font-weight:500}
+.jv-store .creator .c-text p{color:#c7c7c7;font-size:.98rem;font-weight:300;line-height:1.7;max-width:480px;margin-bottom:14px}
+.jv-store .creator .c-sign{margin-top:10px;font-size:1.05rem;color:#fff;font-weight:400;letter-spacing:.02em}
+.jv-store .buy{background:var(--nude);padding:50px 40px}
+.jv-store .buy-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+.jv-store .buy-img{border-radius:16px;overflow:hidden;background:#fff;aspect-ratio:4/5;position:relative;border:1px solid var(--line)}
+.jv-store .buy-set{position:absolute;left:14px;bottom:14px;width:clamp(124px,30%,170px);background:#fff;border-radius:12px;padding:6px 6px 8px;box-shadow:0 8px 22px rgba(0,0,0,.16)}
+.jv-store .buy-img .buy-set img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:8px;padding:0}
+.jv-store .buy-set span{display:block;text-align:center;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;font-weight:600;margin-top:6px;color:var(--ink)}
+.jv-store .buy-img img{width:100%;height:100%;object-fit:cover;transition:opacity .25s}
+.jv-store .buy-img.contain img{object-fit:contain;padding:14px}
+.jv-store .buy-txt h2{font-weight:300;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:.01em;line-height:1.05}
+.jv-store .buy-txt .by{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mute);margin:8px 0 22px}
+.jv-store .buy-tono{font-size:12px;color:var(--soft);margin-bottom:10px}
+.jv-store .buy-tono b{color:var(--ink);font-weight:600}
+.jv-store .sw-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.jv-store .sw{width:44px;height:44px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px var(--nude-line);transition:box-shadow .2s}
+.jv-store .sw img{width:100%;height:100%;object-fit:cover;transform:scale(1.6)}
+.jv-store .sw.sel{box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--ink)}
+.jv-store .buy-pr{font-size:2.4rem;font-weight:400;line-height:1}
+.jv-store .buy-pn{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin:8px 0 18px}
+.jv-store.anim-on section.reveal{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.jv-store.anim-on section.reveal.in{opacity:1;transform:none}
+.jv-store.anim-on img.lz{opacity:0;transition:opacity .7s ease}
+.jv-store.anim-on img.lz.loaded{opacity:1}
+@media (prefers-reduced-motion:reduce){
+.jv-store.anim-on section.reveal, .jv-store.anim-on img.lz{opacity:1!important;transform:none!important;transition:none!important}
+}
+.jv-store footer{background:var(--dark);color:#fff;padding:40px}
+.jv-store .foot-in{max-width:1360px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.jv-store .foot-in .n{font-size:18px;letter-spacing:.14em}
+.jv-store .foot-in .s{font-size:9px;letter-spacing:.3em;color:#8f8f8f;text-transform:uppercase;margin-top:4px}
+.jv-store .foot-in .fr{font-size:11px;color:#8f8f8f}
+.jv-store .foot-in .fr a{color:#c7c7c7}
+@media(max-width:900px){
+.jv-store .head-in{padding:14px 20px;justify-content:center}
+.jv-store nav{display:none}
+.jv-store .hero{grid-template-columns:1fr;height:auto}
+.jv-store .hero-txt{padding:38px 24px}
+.jv-store .hero-collage{height:400px}
+.jv-store .hero-uno{height:330px}
+.jv-store .hero-feats{gap:18px;margin-top:24px}
+.jv-store .promise{padding:40px 24px 6px}
+.jv-store .tonos, .jv-store .razones, .jv-store .pasos, .jv-store .partes, .jv-store .galeria, .jv-store .ficha, .jv-store .buy{padding-left:18px;padding-right:18px}
+.jv-store .tono-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+.jv-store .tono-grid.tres{grid-template-columns:repeat(3,1fr);gap:8px}
+.jv-store .tono-grid.tres .tono-body{padding:10px 10px 12px}
+.jv-store .tono-grid.tres .tono-body .d{display:none}
+.jv-store .band{height:220px}
+.jv-store .raz-grid{grid-template-columns:1fr;gap:34px}
+.jv-store .split, .jv-store .split.rev{grid-template-columns:1fr;min-height:0}
+.jv-store .split.rev .s-img{order:0}
+.jv-store .split .s-img{height:340px}
+.jv-store .split .s-txt{padding:38px 24px}
+.jv-store .paso-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+.jv-store .paso-grid.tres{grid-template-columns:1fr 1fr 1fr;gap:8px}
+.jv-store .paso-grid.tres .paso-body{padding:10px}
+.jv-store .paso-grid.tres .paso-body p{font-size:11px}
+.jv-store .partes-grid{grid-template-columns:1fr}
+.jv-store .duo{grid-template-columns:1fr 1fr;gap:10px}
+.jv-store .duo .parte-body{padding:11px 12px 13px}
+.jv-store .parte-fig{height:330px}
+.jv-store .gal-grid{grid-template-columns:1fr 1fr 1fr;gap:8px}
+.jv-store .creator{grid-template-columns:1fr;height:auto}
+.jv-store .creator .c-photo{height:320px}
+.jv-store .creator .c-text{padding:40px 24px}
+.jv-store .buy-in{grid-template-columns:1fr;gap:26px}
+.jv-store .buy-img{max-width:420px;width:100%;margin:0 auto}
+.jv-store .foot-in{flex-direction:column;text-align:center}
+}
+@media(max-width:900px){
+.jv-store .hero-feats{gap:12px}
+.jv-store .hero-feat{max-width:72px}
+.jv-store .tono-grid:not(.tres){display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:0 -18px;padding:2px 18px 10px;scrollbar-width:none}
+.jv-store .tono-grid:not(.tres)::-webkit-scrollbar{display:none}
+.jv-store .tono-grid:not(.tres) .tono{flex:0 0 40%;scroll-snap-align:start}
+.jv-store .desliza{display:block;text-align:center;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-top:6px}
+.jv-store .razones{padding-top:40px;padding-bottom:40px}
+.jv-store .raz-grid{gap:22px}
+.jv-store .raz{display:grid;grid-template-columns:96px 1fr;grid-template-rows:auto auto;column-gap:16px;row-gap:4px;text-align:left}
+.jv-store .raz .circ{grid-row:1/3;align-self:center;width:96px;height:96px;margin:0;box-shadow:0 0 0 1px var(--nude-line),0 0 0 4px #fff,0 0 0 5px var(--nude-line)}
+.jv-store .raz h3{align-self:end;margin:0}
+.jv-store .raz p{align-self:start;margin:0;max-width:none;font-size:12.5px}
+.jv-store .ficha-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.jv-store .ficha-row .cs{min-width:0;padding:11px 6px}
+.jv-store .ficha-row .cs .t{font-size:.98rem}
+.jv-store .ficha-row .cs .n{font-size:8.5px;letter-spacing:1px}
+}
+@media(min-width:901px){
+.jv-store .desliza{display:none}
+}
+@media(max-width:420px){
+.jv-store .tono-grid:not(.tres) .tono-body .d{min-height:0}
+.jv-store .paso-grid.tres .paso-body h4{font-size:10px}
+}
+</style>
+
+<div class="jv-store">
+<header>
+  <div class="head-in">
+    <a href="{{ section.settings.home_url }}" class="logo"><span class="n">JAVIER VELÁSQUEZ</span><span class="s">Store</span></a>
+    <nav>
+      <a href="{{ section.settings.home_url }}">Inicio</a>
+      <a href="#colores">Colores</a>
+      <a href="#colocar">Cómo se coloca</a>
+      <a href="{{ section.settings.extensiones_url }}">Extensiones de Cortina</a>
+      <a href="{{ section.settings.ponytail_url }}" class="act">Ponytail</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-txt">
+    <span class="eye">Colección Cabello Natural</span>
+    <h1>PONYTAIL</h1>
+    <div class="sub">Cola de cabello 100% natural</div>
+    <div class="by">by Javier Velásquez</div>
+    <p>La manera más práctica y elegante de transformar tu look en minutos, con largo, volumen y movimiento natural.</p>
+    <div class="hero-price">Cada una <b>$185</b></div>
+    <a href="#colores" class="btn">Elegir mi tono <span>&rarr;</span></a>
+    <div class="hero-feats">
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><path d="M12 3c-3 4-5 7-5 10a5 5 0 0 0 10 0c0-3-2-6-5-10z"/></svg><span>100% Natural</span></div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg><span>Aplicación Rápida</span></div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><line x1="8" y1="16" x2="19" y2="4"/><line x1="16" y1="16" x2="5" y2="4"/></svg><span>Se Puede Cortar</span></div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="21"/><line x1="4" y1="3" x2="8" y2="3"/><line x1="4" y1="21" x2="8" y2="21"/><path d="M12 5 Q16 9 12 13 T12 21"/></svg><span>18 Pulgadas</span></div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="hero-collage">
+      <img class="c-tall" src="{{ 'pony-modelo.jpg' | file_url }}" alt="Modelo con Ponytail de cabello natural" style="object-position:30% center">
+      <img src="{{ 'pony-trio-real.jpg' | file_url }}" alt="Tres Ponytail de cabello natural">
+      <img src="{{ 'pony-espalda.jpg' | file_url }}" alt="Ponytail vista de espalda" style="object-position:center 25%">
+    </div>
+  </div>
+</section>
+
+<section class="promise">
+  <h2>Largo, volumen y estilo, <b>en minutos</b>.</h2>
+  <p>Cada Ponytail se vende de manera individual y está diseñada para aportar largo, volumen y crear diferentes estilos de peinados de una manera práctica y natural.</p>
+  <div class="need-row">
+    <span>Cabello humano natural</span><span>Look sofisticado y versátil</span><span>Aplicación rápida y segura</span><span>Se puede estilizar, ondular y cortar</span>
+  </div>
+</section>
+
+<section id="colores" class="tonos">
+  <div class="sec-head">
+    <span class="eye">Colores disponibles</span>
+    <h2>Tres tonos <b>para elegir</b>.</h2>
+  </div>
+  <div class="tono-grid tres">
+    <button class="tono" data-tono="mocha" aria-pressed="false"><div class="tono-img"><img src="{{ 'pony-mocha-v4.jpg' | file_url }}" alt="Ponytail tono Mocha"></div><div class="tono-body"><h3>Mocha</h3><div class="d">Castaño mocha sofisticado, profundo y versátil.</div><div class="pr">$185</div></div></button>
+    <button class="tono" data-tono="sunset" aria-pressed="false"><div class="tono-img"><img src="{{ 'pony-sunset-v4.jpg' | file_url }}" alt="Ponytail tono Sunset Balayage"></div><div class="tono-body"><h3>Sunset Balayage</h3><div class="d">Castaño cálido beige con reflejos dorados naturales.</div><div class="pr">$185</div></div></button>
+    <button class="tono" data-tono="balayage" aria-pressed="false"><div class="tono-img"><img src="{{ 'pony-balayage-v4.jpg' | file_url }}" alt="Ponytail tono Balayage Ice"></div><div class="tono-body"><h3>Balayage Ice</h3><div class="d">Rubio frío con transición natural y luminosa.</div><div class="pr">$185</div></div></button>
+  </div>
+</section>
+
+<section id="colocar" class="pasos" style="background:var(--nude)">
+  <div class="sec-head">
+    <span class="eye">Cómo se coloca</span>
+    <h2>Tres pasos <b>y lista</b>.</h2>
+    <p>Así de fácil se sujeta a tu cabello y así queda el resultado final.</p>
+  </div>
+  <div class="paso-grid tres">
+    <div class="paso"><div class="paso-img"><img src="{{ 'pony-paso-1.jpg' | file_url }}" alt="Paso 1, hacer una cola con el propio cabello" style="object-position:center top"><span class="paso-n">1</span></div><div class="paso-body"><h4>Haz tu cola</h4><p>Haz tu cola con tu propio cabello.</p></div></div>
+    <div class="paso"><div class="paso-img"><img src="{{ 'pony-paso-2-v2.jpg' | file_url }}" alt="Paso 2, colocar la peineta interna en la base" style="object-position:center top"><span class="paso-n">2</span></div><div class="paso-body"><h4>Coloca la peineta</h4><p>Coloca la peineta interna en la base de la cola y asegura.</p></div></div>
+    <div class="paso"><div class="paso-img"><img src="{{ 'pony-paso-3-v2.jpg' | file_url }}" alt="Paso 3, enrollar la tira de cabello en la base" style="object-position:center top"><span class="paso-n">3</span></div><div class="paso-body"><h4>Enrolla la tira</h4><p>Enrolla la tira de cabello alrededor de la base, oculta el sistema y listo.</p></div></div>
+  </div>
+</section>
+
+<section class="partes" style="background:#fff">
+  <div class="sec-head">
+    <span class="eye">Así está hecha</span>
+    <h2>Un sistema <b>que no se ve</b>.</h2>
+  </div>
+  <div class="duo">
+    <div class="parte">
+      <div class="parte-fig"><img src="{{ 'pony-peineta.jpg' | file_url }}" alt="Peineta interna de sujeción del Ponytail"></div>
+      <div class="parte-body"><h4>Peineta interna</h4><p>El sistema de sujeción. La peineta se fija en la base de tu cola para que quede segura.</p></div>
+    </div>
+    <div class="parte">
+      <div class="parte-fig" style="background:#fff"><img src="{{ 'pony-completa-v2.jpg' | file_url }}" alt="Ponytail completo con la tira de cabello y la peineta interna" style="object-fit:contain;padding:12px"></div>
+      <div class="parte-body"><h4>Tira de cabello</h4><p>Se enrolla alrededor de la base para envolverla y ocultar el sistema.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="galeria" style="background:var(--nude)">
+  <div class="sec-head">
+    <span class="eye">El resultado</span>
+    <h2>Una cola <b>con movimiento natural</b>.</h2>
+  </div>
+  <div class="gal-grid">
+    <div class="gal"><img src="{{ 'pony-lado-v2.jpg' | file_url }}" alt="Ponytail vista lateral"></div>
+    <div class="gal"><img src="{{ 'pony-espalda.jpg' | file_url }}" alt="Ponytail vista trasera"></div>
+    <div class="gal"><img src="{{ 'pony-balayage-modelo.jpg' | file_url }}" alt="Ponytail tono Balayage Ice"></div>
+  </div>
+</section>
+
+<section class="ficha">
+  <div class="sec-head" style="margin-bottom:22px">
+    <span class="eye">Ficha</span>
+    <h2>Lo que <b>incluye</b>.</h2>
+  </div>
+  <div class="ficha-row">
+    <div class="cs"><div class="t">100%</div><div class="n">Cabello natural</div></div>
+    <div class="cs"><div class="t">18"</div><div class="n">Pulgadas de largo</div></div>
+    <div class="cs"><div class="t">1 cola</div><div class="n">Se vende por unidad</div></div>
+    <div class="cs"><div class="t">3 tonos</div><div class="n">Disponibles</div></div>
+    <div class="cs"><div class="t">A tu medida</div><div class="n">Se puede cortar y ondular</div></div>
+  </div>
+</section>
+
+<section class="creator">
+  <div class="c-photo"><img src="{{ 'DSC04531.jpg' | file_url }}" alt="Javier Velásquez"></div>
+  <div class="c-text">
+    <span class="eye">El estilista detrás</span>
+    <h2>Cada producto lleva el <b>respaldo de Javier</b>.</h2>
+    <p>Como estilista profesional con años de experiencia y miles de clientas, Javier Velásquez selecciona solo lo que cumple los estándares que busca para el cabello de sus clientas.</p>
+  </div>
+</section>
+
+<section id="comprar" class="buy">
+  <div class="buy-in">
+    <div class="buy-img contain"><img id="buy-img" src="{{ 'pony-mocha-v4.jpg' | file_url }}" alt="Ponytail tono Mocha"></div>
+    <div class="buy-txt">
+      <h2>Ponytail</h2>
+      <div class="by">Cola de cabello 100% natural</div>
+      <div class="buy-tono">Tono <b id="buy-name">Mocha</b></div>
+      <div class="sw-row">
+        <button class="sw" data-tono="mocha" aria-label="Mocha"><img src="{{ 'pony-mocha-v4.jpg' | file_url }}" alt=""></button>
+        <button class="sw" data-tono="sunset" aria-label="Sunset Balayage"><img src="{{ 'pony-sunset-v4.jpg' | file_url }}" alt=""></button>
+        <button class="sw" data-tono="balayage" aria-label="Balayage Ice"><img src="{{ 'pony-balayage-v4.jpg' | file_url }}" alt=""></button>
+      </div>
+      <div class="buy-pr" id="buy-pr">$185</div>
+      <div class="buy-pn">Por unidad · 18 pulgadas</div>
+      {%- assign jv_p = all_products[section.settings.product_handle] -%}
+      {%- if jv_p.available -%}
+      <form action="/cart/add" method="post" class="jv-buy" style="margin:0;padding:0">
+        <input type="hidden" name="id" value="{{ jv_p.selected_or_first_available_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="return_to" value="/checkout">
+        <button type="submit" class="btn" style="cursor:pointer">Comprar Ahora <span>&rarr;</span></button>
+      </form>
+      {%- else -%}
+      <div class="btn" style="opacity:.45">Agotado</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div><div class="n">JAVIER VELÁSQUEZ</div><div class="s">Store</div></div>
+    <div class="fr"><a href="{{ section.settings.home_url }}">Inicio</a> · <a href="{{ section.settings.extensiones_url }}">Extensiones de Cortina</a> · © 2026 Javier Velásquez Store</div>
+  </div>
+</footer>
+</div>
+
+<script>
+window.TONOS = {
+  mocha:{n:'Mocha',p:'$185',img:'{{ 'pony-mocha-v4.jpg' | file_url }}',alt:'Ponytail tono Mocha'},
+  sunset:{n:'Sunset Balayage',p:'$185',img:'{{ 'pony-sunset-v4.jpg' | file_url }}',alt:'Ponytail tono Sunset Balayage'},
+  balayage:{n:'Balayage Ice',p:'$185',img:'{{ 'pony-balayage-v4.jpg' | file_url }}',alt:'Ponytail tono Balayage Ice'}
+};
+window.TONO_INICIAL = 'mocha';
+</script>
+<script>
+window.JV_VARIANTES = {
+{%- for v in jv_p.variants -%}
+  {{ v.title | json }}: { id: {{ v.id }}, ok: {{ v.available }} }{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+};
+</script>
+<script>
+(function(){
+  var root = document.currentScript.closest('.jv-store') || document.querySelector('.jv-store');
+  if (!root) return;
+  root.classList.add('anim-on');
+
+  var imgs = root.querySelectorAll('img');
+  for (var i = 0; i < imgs.length; i++) {
+    (function(img){
+      img.classList.add('lz');
+      if (img.complete && img.naturalWidth > 0) { img.classList.add('loaded'); }
+      else {
+        img.addEventListener('load', function(){ img.classList.add('loaded'); });
+        img.addEventListener('error', function(){ img.classList.add('loaded'); });
+      }
+    })(imgs[i]);
+  }
+
+  var secs = root.querySelectorAll('section');
+  if ('IntersectionObserver' in window) {
+    for (var j = 0; j < secs.length; j++) secs[j].classList.add('reveal');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+    for (var k = 0; k < secs.length; k++) io.observe(secs[k]);
+  }
+
+  // Selector de tono. Cambia foto, nombre, precio y la variante que va al carrito.
+  var tonos = window.TONOS || {};
+  var vars = window.JV_VARIANTES || {};
+  var btns = root.querySelectorAll('[data-tono]');
+  var bImg = root.querySelector('#buy-img');
+  var bName = root.querySelector('#buy-name');
+  var bPr = root.querySelector('#buy-pr');
+  var bId = root.querySelector('.jv-buy input[name="id"]');
+  var bBtn = root.querySelector('.jv-buy button');
+  function elegir(key){
+    var t = tonos[key]; if (!t) return;
+    for (var b = 0; b < btns.length; b++) {
+      var on = btns[b].getAttribute('data-tono') === key;
+      btns[b].classList.toggle('sel', on);
+      btns[b].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    if (bImg) { bImg.src = t.img; bImg.alt = t.alt; }
+    if (bName) bName.textContent = t.n;
+    if (bPr) bPr.textContent = t.p;
+    var v = vars[t.n];
+    if (bId && v) bId.value = v.id;
+    if (bBtn) {
+      var ok = !!(v && v.ok);
+      bBtn.disabled = !ok;
+      bBtn.style.opacity = ok ? '' : '.45';
+      bBtn.innerHTML = ok ? 'Comprar Ahora <span>&rarr;</span>' : 'Agotado';
+    }
+  }
+  for (var m = 0; m < btns.length; m++) {
+    btns[m].addEventListener('click', function(){ elegir(this.getAttribute('data-tono')); });
+  }
+  if (window.TONO_INICIAL) elegir(window.TONO_INICIAL);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Ponytail Landing",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Enlaces de navegacion" },
+    { "type": "text", "id": "home_url",         "label": "Inicio de la tienda",            "default": "/" },
+    { "type": "text", "id": "extensiones_url",  "label": "Pagina Extensiones de Cortina",  "default": "/pages/extensiones-de-cortina" },
+    { "type": "text", "id": "ponytail_url",     "label": "Pagina Ponytail",                "default": "/pages/ponytail" },
+    { "type": "text", "id": "product_handle",   "label": "Handle del producto",            "default": "ponytail" }
+  ],
+  "presets": [ { "name": "Ponytail Landing", "category": "Javier Velasquez Store" } ]
+}
+{% endschema %}

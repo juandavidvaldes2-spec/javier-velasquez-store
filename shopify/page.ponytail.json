@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "ponytail-landing",
+      "settings": {
+        "home_url": "/",
+        "extensiones_url": "/pages/extensiones-de-cortina",
+        "ponytail_url": "/pages/ponytail",
+        "product_handle": "ponytail"
+      }
+    }
+  },
+  "order": ["main"]
+}

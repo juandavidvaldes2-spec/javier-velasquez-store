@@ -11,6 +11,7 @@
 .jv-store{
     --bg:#ffffff; --ink:#141414; --soft:#555; --mute:#8f8f8f; --line:#ececec; --black:#0a0a0a;
     --warm:#b39a78; --warm-bg:#f3ede3; --warm-line:#e4d8c6;
+    --nude:#ffffff; --nude-2:#f5f5f5; --nude-line:#e8e8e8; --taupe:#8a7562;
   }
 .jv-store{scroll-behavior:smooth}
 .jv-store{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:15px;overflow-x:hidden}
@@ -52,6 +53,22 @@
 .jv-store .p-feats span{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--soft);font-weight:500;border:1px solid var(--line);border-radius:100px;padding:6px 12px}
 .jv-store .pcard.warm .p-feats span{border-color:var(--warm-line)}
 .jv-store .pcard-body .btn{align-self:flex-start;margin-top:auto}
+.jv-store section[id]{scroll-margin-top:84px}
+.jv-store .grp-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:18px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.jv-store .grp-head h2{font-weight:300;font-size:1.35rem;letter-spacing:.01em}
+.jv-store .grp-head span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mute);font-weight:600}
+.jv-store .pcard-media.cover{padding:0;background:var(--nude-2)}
+.jv-store .pcard-media.cover img{width:100%;height:100%;max-height:none;object-fit:cover}
+.jv-store .coleccion{background:var(--nude);padding:46px 0 60px}
+.jv-store .coleccion .products{padding-bottom:0}
+.jv-store .coleccion .grp-head{border-bottom-color:var(--nude-line)}
+.jv-store .coleccion .grp-head span{color:var(--taupe)}
+.jv-store .coleccion .intro{color:var(--soft);font-weight:300;font-size:.98rem;max-width:620px;margin:-4px 0 24px;line-height:1.6}
+.jv-store .coleccion .pcard{border-color:var(--nude-line)}
+.jv-store .coleccion .p-eye{color:var(--taupe)}
+.jv-store .coleccion .p-feats span{border-color:var(--nude-line)}
+.jv-store .p-price{font-size:13px;color:var(--ink);margin:-6px 0 22px}
+.jv-store .p-price b{font-size:1.25rem;font-weight:400;margin-left:3px}
 .jv-store .creator{background:#0a0a0a;color:#fff;display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;height:400px}
 .jv-store .creator .c-photo{overflow:hidden}
 .jv-store .creator .c-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
@@ -80,6 +97,9 @@
 .jv-store .products{padding:6px 20px 44px}
 .jv-store .pgrid{grid-template-columns:1fr;gap:22px}
 .jv-store .pcard-media{height:230px}
+.jv-store .pcard-media.cover{height:280px}
+.jv-store .coleccion{padding:38px 0 44px}
+.jv-store .grp-head{flex-direction:column;gap:6px}
 .jv-store .pcard-body{padding:24px 26px 28px}
 .jv-store .creator{grid-template-columns:1fr;height:auto}
 .jv-store .creator .c-photo{height:340px}
@@ -96,6 +116,7 @@
       <a href="#productos">Productos</a>
       <a href="{{ section.settings.plasmaflow_url }}">PLASMAFLOW</a>
       <a href="{{ section.settings.plancha_url }}">Plancha Rizadora</a>
+      <a href="#cabello">Cabello Natural</a>
       <a href="#javier">Sobre Javier</a>
     </nav>
     {%- if cart.item_count > 0 -%}
@@ -106,11 +127,12 @@
 
 <section class="hero">
   <div class="eye">Javier Velásquez Store</div>
-  <h1>Herramientas <b>profesionales</b><br>para tu cabello</h1>
-  <p>Cada herramienta de la tienda está seleccionada y respaldada por Javier Velásquez, para lograr resultados de salón desde casa.</p>
+  <h1>Herramientas <b>profesionales</b><br>y cabello 100% natural</h1>
+  <p>Cada producto de la tienda está seleccionado y respaldado por Javier Velásquez, para lograr resultados de salón desde casa.</p>
 </section>
 
 <section id="productos" class="products">
+  <div class="grp-head"><h2>Herramientas</h2><span>Para tu cabello</span></div>
   <div class="pgrid">
 
     <article class="pcard">
@@ -153,13 +175,49 @@
   </div>
 </section>
 
+<section id="cabello" class="coleccion">
+  <div class="products">
+    <div class="grp-head"><h2>Colección Cabello Natural</h2><span>Nuevo</span></div>
+    <p class="intro">Extensiones y colas de cabello 100% natural de 18 pulgadas, para dar largo, volumen y luz con un acabado natural.</p>
+    <div class="pgrid">
+
+      <article class="pcard">
+        <div class="pcard-media cover"><img src="{{ 'ext-ondas-tonos.jpg' | file_url }}" alt="Extensiones de cortina en distintos tonos" style="object-position:center 45%"></div>
+        <div class="pcard-body">
+          <div class="p-eye">Set de 5 piezas</div>
+          <h3>Extensiones de Cortina</h3>
+          <div class="by">by Javier Velásquez</div>
+          <p>Rellenan espacios, dan volumen, perfeccionan tu Bob y permiten iluminar el cabello sin decolorarlo.</p>
+          <div class="p-price">Desde <b>$225</b></div>
+          <div class="p-feats"><span>100% natural</span><span>18 pulgadas</span><span>5 tonos</span></div>
+          <a href="{{ section.settings.extensiones_url }}" class="btn">Ver Extensiones <span>&rarr;</span></a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-media cover"><img src="{{ 'pony-trio-real.jpg' | file_url }}" alt="Ponytail de cabello natural en tres tonos" style="object-position:center 35%"></div>
+        <div class="pcard-body">
+          <div class="p-eye">Cola de cabello natural</div>
+          <h3>Ponytail</h3>
+          <div class="by">by Javier Velásquez</div>
+          <p>La manera más práctica de transformar tu look en minutos, con largo, volumen y movimiento natural.</p>
+          <div class="p-price">Cada una <b>$185</b></div>
+          <div class="p-feats"><span>100% natural</span><span>18 pulgadas</span><span>3 tonos</span></div>
+          <a href="{{ section.settings.ponytail_url }}" class="btn">Ver Ponytail <span>&rarr;</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <section id="javier" class="creator">
   <div class="c-photo"><img src="{{ 'DSC04531.jpg' | file_url }}" alt="Javier Velásquez"></div>
   <div class="c-text">
     <div class="c-eye">El estilista detrás</div>
-    <h2>Cada herramienta lleva el <b>respaldo de Javier</b>.</h2>
-    <p>Como estilista profesional con años de experiencia y miles de clientas, Javier Velásquez selecciona y recomienda solo las herramientas que cumplen los estándares que busca para el cabello de sus clientas.</p>
-    <p>La tienda crece con cada herramienta que decide respaldar.</p>
+    <h2>Cada producto lleva el <b>respaldo de Javier</b>.</h2>
+    <p>Como estilista profesional con años de experiencia y miles de clientas, Javier Velásquez selecciona y recomienda solo lo que cumple los estándares que busca para el cabello de sus clientas.</p>
+    <p>La tienda crece con cada producto que decide respaldar.</p>
   </div>
 </section>
 
@@ -202,7 +260,9 @@
     { "type": "header", "content": "Enlaces de navegacion" },
     { "type": "text", "id": "home_url",       "label": "Inicio de la tienda",  "default": "/" },
     { "type": "text", "id": "plancha_url",    "label": "Pagina Plancha Rizadora", "default": "/pages/plancha-rizadora" },
-    { "type": "text", "id": "plasmaflow_url", "label": "Pagina PLASMAFLOW",     "default": "/pages/plasmaflow" }
+    { "type": "text", "id": "plasmaflow_url", "label": "Pagina PLASMAFLOW",     "default": "/pages/plasmaflow" },
+    { "type": "text", "id": "extensiones_url", "label": "Pagina Extensiones de Cortina", "default": "/pages/extensiones-de-cortina" },
+    { "type": "text", "id": "ponytail_url",   "label": "Pagina Ponytail",       "default": "/pages/ponytail" }
   ],
   "presets": [ { "name": "Home Tienda JV", "category": "Javier Velasquez Store" } ]
 }
